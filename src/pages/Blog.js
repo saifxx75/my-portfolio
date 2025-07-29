@@ -57,7 +57,7 @@ function Blog() {
     {
       id: 4,
       title: 'API Security Best Practices: From Development to Production',
-      excerpt: 'Essential security measures every backend developer should implement to protect APIs from common vulnerabilities.',
+      excerpt: 'Essential security measures every Software Developer should implement to protect APIs from common vulnerabilities.',
       content: 'API security is crucial in today\'s interconnected world...',
       category: 'Security',
       tags: ['API Security', 'OWASP', 'Authentication', 'Best Practices'],

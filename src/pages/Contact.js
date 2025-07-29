@@ -55,13 +55,13 @@ function Contact() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'contact@saifkhan.dev',
-      href: 'mailto:contact@saifkhan.dev'
+      value: 'saifkhan0409.sk@gmail.com',
+      href: 'mailto:saifkhan0409.sk@gmail.com'
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: 'Available on request',
+      value: '+91 8423290835',
       href: '#'
     },
     {
@@ -76,7 +76,7 @@ function Contact() {
     {
       icon: Github,
       label: 'GitHub',
-      href: 'https://github.com',
+      href: 'https://github.com/saifxx75',
       color: 'hover:text-gray-900'
     },
     {
@@ -142,7 +142,7 @@ function Contact() {
             variants={itemVariants}
             className="text-xl text-light-200 dark:text-dark-200 max-w-3xl mx-auto"
           >
-            Have a backend project in mind or want to discuss opportunities? I'd love to hear from you!
+            Have a software development idea or need help with a project in mind or want to discuss opportunities? I'd love to hear from you!
           </motion.p>
         </motion.div>
 

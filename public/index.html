@@ -27,6 +27,17 @@
     <title>Saif Khan - Fullstack Developer Portfolio</title>
   </head>
   <body>
+    <script>
+      // Prevent flash of unstyled content (FOUC) by setting theme before React loads
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

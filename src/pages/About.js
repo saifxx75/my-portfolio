@@ -36,7 +36,7 @@ function About() {
 
   const experience = [
     {
-      title: 'Backend Developer',
+      title: 'Software Developer',
       company: 'Alltake Ites Pvt. Ltd.',
       period: '2023 - Present',
       description: 'Building secure, scalable backend applications with Java SpringBoot, Node.js, and PHP. Leading development of REST APIs, database optimization, and third-party service integrations.',
@@ -159,7 +159,7 @@ function About() {
                   <h2 className="text-2xl font-bold text-light-100 dark:text-dark-100 mb-2 mt-4">Saif Khan</h2>
                   <div className="inline-flex items-center px-3 py-1 bg-primary/10 rounded-full">
                     <div className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse" />
-                    <p className="text-primary font-semibold text-sm">Backend Developer</p>
+                    <p className="text-primary font-semibold text-sm">Software Developer</p>
                   </div>
                 </div>
 
@@ -248,7 +248,7 @@ function About() {
               </h3>
               <div className="space-y-4 text-light-200 dark:text-dark-200">
                 <p>
-                  I'm a passionate backend developer with professional experience in Java, Node.js, Spring Boot, 
+                  I'm a passionate Software Developer with professional experience in Java, Node.js, Spring Boot, 
                   Express.js, and PHP. My expertise lies in building scalable backends, designing robust REST APIs, 
                   implementing secure authentication systems, and optimizing database performance for high-traffic applications.
                 </p>
@@ -258,7 +258,7 @@ function About() {
                   My focus on secure coding practices and API testing ensures reliable, production-ready solutions.
                 </p>
                 <p>
-                  Currently pursuing my Master's in Computer Applications while working as a Backend Developer at 
+                  Currently pursuing my Master's in Computer Applications while working as a Software Developer at 
                   Alltake Ites Pvt. Ltd. I've successfully delivered projects like SmartQC (lead generation platform), 
                   Kitecyber (IT security application), and Market40 (news platform), contributing to both backend 
                   architecture and full-stack development in an Agile environment.

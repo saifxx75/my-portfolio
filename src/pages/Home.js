@@ -89,7 +89,8 @@ function Home() {
       degree: 'Master of Computer Applications (MCA)',
       institution: 'PA Inamdar University',
       year: '2023-2025',
-      location: 'Pune'
+      location: 'Pune',
+      CGPA : 9.29/10
     },
     {
       degree: 'Bachelor of Computer Applications (BCA)',
@@ -101,7 +102,7 @@ function Home() {
 
   const experience = [
     {
-      position: 'Backend Developer',
+      position: 'Software Developer',
       company: 'Alltake Ites Pvt. Ltd.',
       duration: '2023 - Present',
       description: 'Building secure, scalable backend applications with Java SpringBoot, Node.js, and PHP. Specialized in REST APIs, database optimization, and third-party integrations.'
@@ -179,7 +180,7 @@ function Home() {
             </div>
 
             <p className="text-xl md:text-2xl lg:text-3xl text-light-200 dark:text-light-200 dark:text-dark-200 max-w-4xl mx-auto leading-relaxed mb-4">
-              <span className="font-bold text-primary">Backend Developer</span> building secure, scalable applications in Java, Node.js, and PHP.
+              <span className="font-bold text-primary">Software Developer</span> building secure, scalable applications in Java, Node.js, and PHP.
             </p>
             <p className="text-lg md:text-xl text-light-300 dark:text-light-300 dark:text-dark-300 max-w-3xl mx-auto leading-relaxed">
               Experienced in REST APIs, database optimization, security hardening, and cloud integration.
@@ -222,9 +223,9 @@ function Home() {
 
           <motion.div variants={itemVariants} className="flex justify-center space-x-6">
             {[
-              { href: "https://github.com", icon: Github, label: "GitHub", color: "hover:text-primary" },
+              { href: "https://github.com/saifxx75", icon: Github, label: "GitHub", color: "hover:text-primary" },
               { href: "https://linkedin.com", icon: Linkedin, label: "LinkedIn", color: "hover:text-blue-400" },
-              { href: "mailto:contact@saifkhan.dev", icon: Mail, label: "Email", color: "hover:text-secondary" }
+              { href: "mailto:saifkhan0409.sk@gmail.com", icon: Mail, label: "Email", color: "hover:text-secondary" }
             ].map(({ href, icon: Icon, label, color }, index) => (
               <motion.a
                 key={label}

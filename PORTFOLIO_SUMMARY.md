@@ -1,8 +1,8 @@
-# Saif Khan - Backend Developer Portfolio
+# Saif Khan - Software Developer Portfolio
 
 ## 🎯 Portfolio Overview
 
-A modern, responsive portfolio website showcasing Saif Khan's expertise as a Backend Developer with professional experience in Java, Node.js, Spring Boot, Express.js, and PHP.
+A modern, responsive portfolio website showcasing Saif Khan's expertise as a Software Developer with professional experience in Java, Node.js, Spring Boot, Express.js, and PHP.
 
 ## ✨ Key Features Implemented
 
@@ -48,7 +48,7 @@ A modern, responsive portfolio website showcasing Saif Khan's expertise as a Bac
 
 ### Professional Profile
 - **Name**: Saif Khan
-- **Title**: Backend Developer
+- **Title**: Software Developer
 - **Experience**: Professional experience at Alltake Ites Pvt. Ltd. and Correct Cloud Pvt. Ltd.
 - **Location**: Pune, Maharashtra, India
 - **Email**: Saifkhan0409.sk@gmail.com
@@ -154,7 +154,7 @@ npm test
 
 ## 🌟 Unique Selling Points
 
-1. **Backend Focus**: Specifically tailored for backend developer showcase
+1. **Backend Focus**: Specifically tailored for Software Developer showcase
 2. **Security Emphasis**: Highlights secure coding and API security expertise
 3. **Interactive Elements**: Engaging carousel and animated components
 4. **Professional Design**: Clean, modern aesthetic suitable for corporate environments
@@ -175,7 +175,7 @@ npm test
 
 ## 🎉 Conclusion
 
-This portfolio successfully showcases Saif Khan as a professional Backend Developer with:
+This portfolio successfully showcases Saif Khan as a professional Software Developer with:
 - Strong technical expertise in modern backend technologies
 - Professional experience with real-world projects
 - Commitment to security and best practices

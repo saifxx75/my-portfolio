@@ -58,7 +58,7 @@ function Navbar() {
                   Saif Khan
                 </span>
                 <span className="text-xs text-light-300 dark:text-dark-300 font-medium tracking-wider uppercase opacity-80">
-                  Backend Developer
+                  Software Developer
                 </span>
               </div>
             </Link>

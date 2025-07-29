@@ -10,7 +10,7 @@ function Footer() {
     { icon: Github, href: 'https://github.com', label: 'GitHub' },
     { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
     { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: Mail, href: 'mailto:contact@saifkhan.dev', label: 'Email' }
+    { icon: Mail, href: 'mailto:saifkhan0409.sk@gmail.com', label: 'Email' }
   ];
 
   const quickLinks = [
@@ -42,11 +42,11 @@ function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-2xl text-light-100 dark:text-dark-100 group-hover:text-primary transition-colors duration-300">Saif Khan</span>
-                <span className="text-sm text-light-200 dark:text-dark-300 font-medium">Backend Developer</span>
+                <span className="text-sm text-light-200 dark:text-dark-300 font-medium">Software Developer</span>
               </div>
             </Link>
             <p className="text-light-200 dark:text-dark-200 mb-8 max-w-md leading-relaxed text-base">
-              Backend Developer with professional experience in Java, Node.js, Spring Boot, 
+              Software Developer with professional experience in Java, Node.js, Spring Boot, 
               Express.js, and PHP. Specialized in building scalable backends, REST APIs, 
               secure authentication, and database optimization. Passionate about delivering 
               robust solutions in an Agile environment.
@@ -100,7 +100,7 @@ function Footer() {
             <div className="space-y-4 text-light-200 dark:text-dark-200">
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-primary flex-shrink-0" />
-                <p className="text-base">contact@saifkhan.dev</p>
+                <p className="text-base">saifkhan0409.sk@gmail.com</p>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="h-4 w-4 flex items-center justify-center flex-shrink-0">
@@ -124,7 +124,7 @@ function Footer() {
             © {currentYear} Saif Khan. All rights reserved.
           </p>
           <p className="text-light-200 dark:text-dark-200 text-base flex items-center mt-4 md:mt-0">
-            Made with <Heart className="h-4 w-4 text-red-500 mx-2 animate-pulse" /> using React & Tailwind CSS
+            
           </p>
         </div>
       </div>
