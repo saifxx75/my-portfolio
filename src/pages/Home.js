@@ -269,7 +269,7 @@ function Home() {
           <motion.div variants={itemVariants} className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-light-400/50 dark:bg-light-400/50 dark:bg-dark-400/50 rounded-full border border-primary/20 mb-4">
               <Cpu className="h-4 w-4 text-primary mr-2" />
-              <span className="text-sm text-primary font-mono">journey.map(experience => growth)</span>
+              <span className="text-sm text-primary font-mono">journey.map(experience ={'>'} growth)</span>
             </div>
             <h2 className="text-4xl font-bold text-light-100 dark:text-light-100 dark:text-dark-100 mb-4 section-heading">Experience & Education</h2>
             <p className="text-xl text-light-200 dark:text-light-200 dark:text-dark-200 max-w-2xl mx-auto">
