@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Code2, Github, Linkedin, Twitter, Mail, Heart } from 'lucide-react';
+import { Code2, Github, Linkedin, Twitter, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 function Footer() {

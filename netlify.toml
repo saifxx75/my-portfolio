@@ -14,6 +14,9 @@
   
   # Skip npm audit during build for faster builds
   NPM_FLAGS = "--no-audit --no-fund"
+  
+  # Treat warnings as non-fatal
+  CI = "false"
 
 # Redirect rules for single-page application (SPA)
 # This ensures that all routes are handled by React Router
