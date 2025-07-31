@@ -4,12 +4,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 
 function ThemeToggle() {
-  const { isDark, toggleTheme } = useTheme();
+  const { isDark, toggleTheme, isInitialized } = useTheme();
+  
+  // Don't render until theme is initialized
+  if (!isInitialized) {
+    return null;
+  }
 
   return (
     <motion.button
       onClick={toggleTheme}
-      className="fixed top-4 right-4 z-50 p-3 bg-light-400/80 dark:bg-dark-400/80 backdrop-blur-sm hover:bg-light-300/80 dark:hover:bg-dark-300/80 text-light-100 dark:text-dark-100 rounded-full shadow-lg border border-light-300/50 dark:border-dark-300/50 group overflow-hidden"
+      className="fixed top-4 right-4 z-[9999] p-3 bg-light-400/90 dark:bg-dark-400/90 backdrop-blur-sm hover:bg-light-300/90 dark:hover:bg-dark-300/90 text-light-100 dark:text-dark-100 rounded-full shadow-lg border border-light-300/50 dark:border-dark-300/50 group overflow-hidden cursor-pointer"
       aria-label="Toggle theme"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
@@ -51,8 +56,6 @@ function ThemeToggle() {
       <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-light-300 dark:bg-dark-300 text-light-100 dark:text-dark-100 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
         {isDark ? 'Switch to Light' : 'Switch to Dark'}
       </div>
-      
-
     </motion.button>
   );
 }

@@ -11,18 +11,29 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [isDark, setIsDark] = useState(() => {
-    // Check localStorage first, then system preference
+  const [isDark, setIsDark] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  // Initialize theme on client side only
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
-      return savedTheme === 'dark';
+      setIsDark(savedTheme === 'dark');
+    } else {
+      setIsDark(window.matchMedia('(prefers-color-scheme: dark)').matches);
     }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
+    setIsInitialized(true);
+  }, []);
 
   useEffect(() => {
-    // Apply theme to document
+    // Apply theme to document only after initialization
+    if (!isInitialized) return;
+    
     const applyTheme = (dark) => {
+      if (typeof window === 'undefined') return;
+      
       if (dark) {
         document.documentElement.classList.add('dark');
         localStorage.setItem('theme', 'dark');
@@ -33,7 +44,7 @@ export const ThemeProvider = ({ children }) => {
     };
 
     applyTheme(isDark);
-  }, [isDark]);
+  }, [isDark, isInitialized]);
 
   const toggleTheme = () => {
     setIsDark(prev => !prev);
@@ -42,7 +53,8 @@ export const ThemeProvider = ({ children }) => {
   const value = {
     isDark,
     toggleTheme,
-    theme: isDark ? 'dark' : 'light'
+    theme: isDark ? 'dark' : 'light',
+    isInitialized
   };
 
   return (

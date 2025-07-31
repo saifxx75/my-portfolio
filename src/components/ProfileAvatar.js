@@ -27,8 +27,24 @@ const ProfileAvatar = ({ size = 'large', showBorder = true }) => {
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.3 }}
       >
-        {/* Background pattern */}
-        <div className="absolute inset-0 bg-gradient-to-br from-dark-400 to-dark-500">
+        {/* Professional Photo */}
+        <motion.img
+          src="/saif-profile.jpg"
+          alt="Saif Khan - Software Developer"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          loading="eager"
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          onError={(e) => {
+            // Fallback to placeholder if image fails to load
+            e.target.style.display = 'none';
+            e.target.nextSibling.style.display = 'flex';
+          }}
+        />
+
+        {/* Fallback placeholder (hidden by default) */}
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-dark-400 to-dark-500" style={{ display: 'none' }}>
           <div className="absolute inset-0 opacity-30">
             <svg className="w-full h-full" viewBox="0 0 100 100">
               <defs>
@@ -40,12 +56,8 @@ const ProfileAvatar = ({ size = 'large', showBorder = true }) => {
               <rect width="100" height="100" fill="url(#tech-pattern)" />
             </svg>
           </div>
-        </div>
-
-        {/* Placeholder content */}
-        <div className="absolute inset-0 flex items-center justify-center">
           <motion.div
-            className="text-center"
+            className="text-center relative z-10"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}

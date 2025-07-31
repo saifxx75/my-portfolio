@@ -179,10 +179,10 @@ function Home() {
               </motion.div>
             </div>
 
-            <p className="text-xl md:text-2xl lg:text-3xl text-light-200 dark:text-light-200 dark:text-dark-200 max-w-4xl mx-auto leading-relaxed mb-4">
-              <span className="font-bold text-primary">Software Developer</span> building secure, scalable applications in Java, Node.js, and PHP.
+            <p className="text-xl md:text-2xl lg:text-3xl text-light-200 dark:text-dark-200 max-w-4xl mx-auto leading-relaxed mb-4">
+              <span className="font-bold text-primary dark:text-purple-400">Software Developer</span> building secure, scalable applications in Java, Node.js, and PHP.
             </p>
-            <p className="text-lg md:text-xl text-light-300 dark:text-light-300 dark:text-dark-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-light-300 dark:text-dark-300 max-w-3xl mx-auto leading-relaxed">
               Experienced in REST APIs, database optimization, security hardening, and cloud integration.
             </p>
           </motion.div>
@@ -232,7 +232,7 @@ function Home() {
                 href={href}
                 target={href.startsWith('mailto:') ? undefined : "_blank"}
                 rel={href.startsWith('mailto:') ? undefined : "noopener noreferrer"}
-                className={`relative p-4 bg-light-400/50 dark:bg-light-400/50 dark:bg-dark-400/50 backdrop-blur-sm rounded-xl border border-light-300/50 dark:border-light-300/50 dark:border-dark-300/50 shadow-md hover:shadow-lg transition-all duration-300 text-light-200 dark:text-light-200 dark:text-dark-200 ${color} group`}
+                className={`relative p-4 bg-light-400/50 dark:bg-dark-400/50 backdrop-blur-sm rounded-xl border border-light-300/50 dark:border-dark-300/50 shadow-md hover:shadow-lg transition-all duration-300 text-light-200 dark:text-dark-200 ${color} group`}
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -246,7 +246,7 @@ function Home() {
                 <div className="absolute bottom-0 right-0 w-2 h-2 border-r border-b border-secondary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 {/* Tooltip */}
-                <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-light-300 dark:bg-dark-300 text-light-100 dark:text-light-100 dark:text-dark-100 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-light-300 dark:bg-dark-300 text-light-100 dark:text-dark-100 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                   {label}
                 </div>
               </motion.a>
@@ -257,7 +257,7 @@ function Home() {
 
       {/* Experience & Education Section */}
       <motion.section 
-        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-light-500 dark:bg-light-500 dark:bg-dark-500 overflow-hidden"
+        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-light-500 dark:bg-dark-500 overflow-hidden"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -267,12 +267,12 @@ function Home() {
         
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-light-400/50 dark:bg-light-400/50 dark:bg-dark-400/50 rounded-full border border-primary/20 mb-4">
+            <div className="inline-flex items-center px-4 py-2 bg-light-400/50 dark:bg-dark-400/50 rounded-full border border-primary/20 mb-4">
               <Cpu className="h-4 w-4 text-primary mr-2" />
               <span className="text-sm text-primary font-mono">journey.map(experience ={'>'} growth)</span>
             </div>
-            <h2 className="text-4xl font-bold text-light-100 dark:text-light-100 dark:text-dark-100 mb-4 section-heading">Experience & Education</h2>
-            <p className="text-xl text-light-200 dark:text-light-200 dark:text-dark-200 max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold text-light-100 dark:text-dark-100 mb-4 section-heading">Experience & Education</h2>
+            <p className="text-xl text-light-200 dark:text-dark-200 max-w-2xl mx-auto">
               My professional journey and academic background
             </p>
           </motion.div>
@@ -284,7 +284,7 @@ function Home() {
                 <div className="p-2 bg-primary/20 rounded-lg mr-3">
                   <Briefcase className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-2xl font-semibold text-light-100 dark:text-light-100 dark:text-dark-100">Work Experience</h3>
+                <h3 className="text-2xl font-semibold text-light-100 dark:text-dark-100">Work Experience</h3>
               </div>
               
               <div className="space-y-6">
@@ -317,7 +317,7 @@ function Home() {
                 <div className="p-2 bg-secondary/20 rounded-lg mr-3">
                   <GraduationCap className="h-6 w-6 text-secondary" />
                 </div>
-                <h3 className="text-2xl font-semibold text-light-100 dark:text-light-100 dark:text-dark-100">Education</h3>
+                <h3 className="text-2xl font-semibold text-light-100 dark:text-dark-100">Education</h3>
               </div>
               
               <div className="space-y-6">
