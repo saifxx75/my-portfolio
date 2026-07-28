@@ -14,17 +14,14 @@ function ThemeToggle() {
   return (
     <motion.button
       onClick={toggleTheme}
-      className="fixed top-4 right-4 z-[9999] p-3 bg-light-400/90 dark:bg-dark-400/90 backdrop-blur-sm hover:bg-light-300/90 dark:hover:bg-dark-300/90 text-light-100 dark:text-dark-100 rounded-full shadow-lg border border-light-300/50 dark:border-dark-300/50 group overflow-hidden cursor-pointer"
+      className="inline-flex min-w-[44px] min-h-[44px] items-center justify-center bg-light-400/70 dark:bg-dark-400 hover:bg-light-300 dark:hover:bg-dark-300 text-light-100 dark:text-dark-100 rounded-md border border-light-300/50 dark:border-dark-300/50 group cursor-pointer"
       aria-label="Toggle theme"
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ y: -1 }}
       whileTap={{ scale: 0.95 }}
-      initial={{ opacity: 0, y: -20 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5 }}
     >
-      {/* Background glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
-      
       {/* Icon with smooth transition */}
       <div className="relative z-10">
         <AnimatePresence mode="wait">
@@ -52,10 +49,6 @@ function ThemeToggle() {
         </AnimatePresence>
       </div>
       
-      {/* Tooltip */}
-      <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-light-300 dark:bg-dark-300 text-light-100 dark:text-dark-100 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
-        {isDark ? 'Switch to Light' : 'Switch to Dark'}
-      </div>
     </motion.button>
   );
 }

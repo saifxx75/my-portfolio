@@ -8,27 +8,28 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#8B5CF6',
-        secondary: '#10B981',
+        primary: '#2563EB',
+        secondary: '#0891B2',
         dark: {
-          100: '#E5E7EB',
-          200: '#9CA3AF',
-          300: '#4B5563',
-          400: '#374151',
-          500: '#1F2937',
-          600: '#111827',
+          100: '#F1F5F9',
+          200: '#A8B4C5',
+          300: '#607089',
+          400: '#172033',
+          500: '#101827',
+          600: '#080D16',
         },
         light: {
-          100: '#1F2937',
-          200: '#4B5563',
-          300: '#9CA3AF',
-          400: '#E5E7EB',
-          500: '#F3F4F6',
-          600: '#FFFFFF',
+          100: '#0B1220',
+          200: '#334155',
+          300: '#64748B',
+          400: '#E2E8F0',
+          500: '#F1F4F8',
+          600: '#F7F8FA',
         }
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        display: ['Manrope', 'Inter', 'sans-serif'],
       },
       animation: {
         'wave': 'wave 2s infinite',

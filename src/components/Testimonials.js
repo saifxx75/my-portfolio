@@ -6,30 +6,30 @@ function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      name: 'Sarah Johnson',
-      role: 'Project Manager',
-      company: 'Tech Solutions Inc.',
-      content: 'Saif delivered exceptional backend architecture for our e-commerce platform. His expertise in Java SpringBoot and database optimization resulted in a 40% performance improvement.',
+      name: 'Shahbaz Ahmad',
+      role: 'Software Developer',
+      company: 'Hexlan Technologies',
+      content: 'Saif built our fullstack features end-to-end without missing a beat — clean API design on the backend, smooth integration on the frontend. Reliable to work with and easy to hand off tasks to.',
       rating: 5,
-      avatar: '/api/placeholder/60/60'
+      avatarInitial: 'S'
     },
     {
       id: 2,
-      name: 'Michael Chen',
-      role: 'CTO',
-      company: 'StartupXYZ',
-      content: 'Working with Saif on our API development was fantastic. His attention to security and clean code practices made our integration seamless and robust.',
+      name: 'Yaqoob Ansari',
+      role: 'Oracle DBA',
+      company: 'UnionSys Technologies',
+      content: "Saif has a solid grip on database design and query performance. He optimized our schema and queries in a way that noticeably improved response times, and he's careful about data integrity.",
       rating: 5,
-      avatar: '/api/placeholder/60/60'
+      avatarInitial: 'Y'
     },
     {
       id: 3,
-      name: 'Emily Rodriguez',
-      role: 'Lead Developer',
-      company: 'Digital Innovations',
-      content: 'Saif\'s expertise in Node.js and microservices architecture helped us scale our application to handle 10x more traffic. Highly recommended!',
+      name: 'Zeeshan Khan',
+      role: 'Frontend Developer',
+      company: 'Excite System',
+      content: "Saif's frontend work is clean and pixel-accurate — he translates designs into responsive, polished UI without cutting corners, and he's quick to iterate on feedback.",
       rating: 5,
-      avatar: '/api/placeholder/60/60'
+      avatarInitial: 'Z'
     }
   ];
 
@@ -53,24 +53,24 @@ function Testimonials() {
   };
 
   return (
-    <section className="py-16 bg-dark-500">
+    <section className="py-16 bg-light-500 dark:bg-dark-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-3xl md:text-4xl font-bold text-dark-100 mb-4 section-heading"
+            className="text-3xl md:text-4xl font-bold text-light-100 dark:text-dark-100 mb-4 section-heading"
           >
             What Clients Say
           </motion.h2>
           <motion.p 
             variants={itemVariants}
-            className="text-xl text-dark-200 max-w-2xl mx-auto"
+            className="text-xl text-light-200 dark:text-dark-200 max-w-2xl mx-auto"
           >
             Feedback from clients and colleagues I've worked with
           </motion.p>
@@ -78,7 +78,7 @@ function Testimonials() {
 
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
@@ -87,11 +87,11 @@ function Testimonials() {
             <motion.div
               key={testimonial.id}
               variants={itemVariants}
-              className="bg-dark-400 rounded-xl p-6 shadow-lg border border-dark-300 relative"
+              className="bg-white dark:bg-dark-400 rounded-xl p-6 shadow-lg border border-light-400 dark:border-dark-300 relative"
             >
               <Quote className="h-8 w-8 text-primary mb-4 opacity-50" />
               
-              <p className="text-dark-200 mb-6 italic">
+              <p className="text-light-200 dark:text-dark-200 mb-6 italic">
                 "{testimonial.content}"
               </p>
 
@@ -102,14 +102,14 @@ function Testimonials() {
               </div>
 
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-primary rounded-md flex items-center justify-center mr-4">
                   <span className="text-white font-semibold text-lg">
-                    {testimonial.name.charAt(0)}
+                    {testimonial.avatarInitial}
                   </span>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-dark-100">{testimonial.name}</h4>
-                  <p className="text-sm text-dark-200">{testimonial.role}</p>
+                  <h4 className="font-semibold text-light-100 dark:text-dark-100">{testimonial.name}</h4>
+                  <p className="text-sm text-light-200 dark:text-dark-200">{testimonial.role}</p>
                   <p className="text-sm text-primary">{testimonial.company}</p>
                 </div>
               </div>

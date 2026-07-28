@@ -10,7 +10,9 @@ import {
   Database,
   Shield,
   Server,
-  Cloud
+  Cloud,
+  Code2,
+  Layers
 } from 'lucide-react';
 
 function Blog() {
@@ -40,7 +42,7 @@ function Blog() {
       date: '2024-01-10',
       readTime: '12 min read',
       icon: Database,
-      featured: true
+      featured: false
     },
     {
       id: 3,
@@ -77,11 +79,37 @@ function Blog() {
       readTime: '11 min read',
       icon: Cloud,
       featured: false
+    },
+    {
+      id: 6,
+      title: 'Designing Responsive React Interfaces That Scale',
+      excerpt: 'A practical approach to reusable components, accessible interactions, responsive layouts, and consistent UI delivery with React and Tailwind CSS.',
+      content: 'A scalable frontend starts with clear component boundaries and thoughtful interaction patterns...',
+      category: 'Frontend',
+      tags: ['React.js', 'Tailwind CSS', 'Accessibility', 'Responsive UI'],
+      date: '2024-02-02',
+      readTime: '9 min read',
+      icon: Layers,
+      featured: true
+    },
+    {
+      id: 7,
+      title: 'From Interface to Deployment: A Full-Stack Feature Workflow',
+      excerpt: 'Follow a web feature from UI planning and API design through database integration, testing, security, and cloud deployment.',
+      content: 'Shipping a complete feature requires the frontend, services, data, and delivery workflow to evolve together...',
+      category: 'Full Stack',
+      tags: ['React.js', 'REST API', 'PostgreSQL', 'AWS'],
+      date: '2024-01-24',
+      readTime: '11 min read',
+      icon: Code2,
+      featured: true
     }
   ];
 
   const categories = [
     { id: 'all', label: 'All Posts', count: blogPosts.length },
+    { id: 'Frontend', label: 'Frontend', count: blogPosts.filter(post => post.category === 'Frontend').length },
+    { id: 'Full Stack', label: 'Full Stack', count: blogPosts.filter(post => post.category === 'Full Stack').length },
     { id: 'Backend', label: 'Backend', count: blogPosts.filter(post => post.category === 'Backend').length },
     { id: 'Database', label: 'Database', count: blogPosts.filter(post => post.category === 'Database').length },
     { id: 'Security', label: 'Security', count: blogPosts.filter(post => post.category === 'Security').length },
@@ -97,7 +125,10 @@ function Blog() {
     return matchesSearch && matchesCategory;
   });
 
-  const featuredPosts = blogPosts.filter(post => post.featured);
+  const featuredOrder = { Frontend: 0, 'Full Stack': 1, Backend: 2 };
+  const featuredPosts = blogPosts
+    .filter(post => post.featured)
+    .sort((a, b) => featuredOrder[a.category] - featuredOrder[b.category]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -124,7 +155,7 @@ function Blog() {
         {/* Header */}
         <motion.div 
           className="text-center mb-16"
-          initial="hidden"
+          initial={false}
           animate="visible"
           variants={containerVariants}
         >
@@ -138,27 +169,27 @@ function Blog() {
             variants={itemVariants}
             className="text-xl text-light-200 dark:text-dark-200 max-w-3xl mx-auto"
           >
-            Insights, tutorials, and best practices from my backend development journey
+            Full-stack notes on frontend craft, APIs, data, security, architecture, and cloud delivery
           </motion.p>
         </motion.div>
 
         {/* Search and Filter */}
         <motion.div 
           className="mb-12"
-          initial="hidden"
+          initial={false}
           animate="visible"
           variants={containerVariants}
         >
-          <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
+          <div className="flex flex-col lg:flex-row gap-6 items-stretch lg:items-start justify-between">
             {/* Search */}
-            <motion.div variants={itemVariants} className="relative flex-1 max-w-md">
+            <motion.div variants={itemVariants} className="relative w-full lg:flex-1 lg:max-w-md">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-light-200 dark:text-dark-200" />
               <input
                 type="text"
                 placeholder="Search posts..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-dark-400 border border-dark-300 rounded-lg text-light-100 dark:text-dark-100 placeholder-dark-200 focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 bg-white dark:bg-dark-400 border border-light-400 dark:border-dark-300 rounded-lg text-light-100 dark:text-dark-100 placeholder-light-300 dark:placeholder-dark-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
             </motion.div>
 
@@ -168,10 +199,10 @@ function Blog() {
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`px-4 py-2 rounded-full font-medium transition-all duration-200 ${
+                  className={`min-h-[44px] px-4 py-2 rounded-full font-medium transition-all duration-200 ${
                     selectedCategory === category.id
                       ? 'bg-primary text-white'
-                      : 'bg-dark-400 text-light-200 dark:text-dark-200 hover:bg-dark-300 hover:text-primary border border-dark-300'
+                      : 'bg-white dark:bg-dark-400 text-light-200 dark:text-dark-200 hover:bg-light-500 dark:hover:bg-dark-300 hover:text-primary border border-light-400 dark:border-dark-300'
                   }`}
                 >
                   {category.label} ({category.count})
@@ -185,7 +216,7 @@ function Blog() {
         {selectedCategory === 'all' && searchTerm === '' && (
           <motion.div 
             className="mb-16"
-            initial="hidden"
+            initial={false}
             animate="visible"
             variants={containerVariants}
           >
@@ -201,7 +232,7 @@ function Blog() {
                 <motion.article
                   key={post.id}
                   variants={itemVariants}
-                  className="bg-dark-400 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-dark-300"
+                  className="bg-white dark:bg-dark-400 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-light-400 dark:border-dark-300"
                 >
                   <div className="p-6">
                     <div className="flex items-center mb-4">
@@ -255,7 +286,7 @@ function Blog() {
         {/* All Posts */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          initial="hidden"
+          initial={false}
           animate="visible"
           variants={containerVariants}
         >
@@ -263,7 +294,7 @@ function Blog() {
             <motion.article
               key={post.id}
               variants={itemVariants}
-              className="bg-dark-400 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-dark-300 group cursor-pointer"
+              className="bg-white dark:bg-dark-400 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-light-400 dark:border-dark-300 group cursor-pointer"
             >
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
@@ -323,7 +354,7 @@ function Blog() {
         {filteredPosts.length === 0 && (
           <motion.div 
             className="text-center py-16"
-            initial={{ opacity: 0 }}
+            initial={false}
             animate={{ opacity: 1 }}
           >
             <BookOpen className="h-16 w-16 text-light-300 dark:text-dark-300 mx-auto mb-4" />
@@ -334,8 +365,8 @@ function Blog() {
 
         {/* CTA Section */}
         <motion.div 
-          className="mt-20 text-center bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-12 border border-primary/20"
-          initial="hidden"
+          className="mt-16 sm:mt-20 text-center bg-white dark:bg-dark-500 rounded-lg p-6 sm:p-12 border border-light-400 dark:border-dark-400"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
@@ -345,7 +376,7 @@ function Blog() {
               Want to Discuss These Topics?
             </h2>
             <p className="text-xl text-light-200 dark:text-dark-200 mb-8 max-w-2xl mx-auto">
-              I'm always excited to discuss backend development, share knowledge, and collaborate on interesting projects.
+              I'm always excited to discuss full-stack engineering, share knowledge, and collaborate on useful web products.
             </p>
             <a
               href="/contact"

@@ -37,45 +37,22 @@ const ProjectImage = ({
 
   const ProjectIcon = getProjectIcon(projectType);
 
-  const gradients = {
-    web: 'from-blue-500/20 to-purple-500/20',
-    mobile: 'from-green-500/20 to-blue-500/20',
-    desktop: 'from-purple-500/20 to-pink-500/20',
-    backend: 'from-primary/20 to-secondary/20',
-    database: 'from-orange-500/20 to-red-500/20',
-    api: 'from-cyan-500/20 to-blue-500/20',
-    cloud: 'from-gray-500/20 to-blue-500/20'
-  };
-
   return (
     <motion.div
       className={`
         ${sizeClasses[size]} 
-        relative rounded-xl bg-gradient-to-br ${gradients[projectType]} 
-        border border-primary/20 overflow-hidden group cursor-pointer
+        relative rounded-lg bg-light-500 dark:bg-dark-400
+        border border-light-400 dark:border-dark-300 overflow-hidden group
         ${className}
       `}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ y: -2 }}
       transition={{ duration: 0.3 }}
     >
-      {/* Tech pattern background */}
-      <div className="absolute inset-0 opacity-30">
-        <svg className="w-full h-full" viewBox="0 0 100 100">
-          <defs>
-            <pattern id={`project-pattern-${projectType}`} x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="10" cy="10" r="1" fill="#8B5CF6" opacity="0.4" />
-              <path d="M0,10 L20,10 M10,0 L10,20" stroke="#10B981" strokeWidth="0.5" opacity="0.3" />
-            </pattern>
-          </defs>
-          <rect width="100" height="100" fill={`url(#project-pattern-${projectType})`} />
-        </svg>
-      </div>
-
       {/* Main content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
         <motion.div
           className="text-center"
-          initial={{ opacity: 0, y: 10 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
@@ -89,31 +66,6 @@ const ProjectImage = ({
         </motion.div>
       </div>
 
-      {/* Hover overlay */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        initial={false}
-      />
-
-      {/* Corner accents */}
-      <div className="absolute top-0 left-0 w-4 h-4 border-l-2 border-t-2 border-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <div className="absolute bottom-0 right-0 w-4 h-4 border-r-2 border-b-2 border-secondary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-      {/* Floating elements for full size */}
-      {size === 'full' && (
-        <>
-          <motion.div
-            className="absolute top-2 right-2 w-2 h-2 bg-primary/60 rounded-full"
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-          <motion.div
-            className="absolute bottom-2 left-2 w-1.5 h-1.5 bg-secondary/60 rounded-full"
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-          />
-        </>
-      )}
     </motion.div>
   );
 };

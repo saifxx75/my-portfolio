@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,10 +8,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #8B5CF6, #10B981);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #2563eb;
 }
 
 .skill-card {
@@ -46,5 +41,5 @@ body {
   left: 0;
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #8B5CF6, #10B981);
+  background: #2563eb;
 }

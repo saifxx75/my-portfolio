@@ -5,9 +5,9 @@ import SkillBadge from '../components/SkillBadge';
 import Testimonials from '../components/Testimonials';
 import ProjectCarousel from '../components/ProjectCarousel';
 import TechBackground from '../components/TechBackground';
-import ProfileAvatar from '../components/ProfileAvatar';
 import TechCard from '../components/TechCard';
 import TechButton from '../components/TechButton';
+import { contactLinks, projects } from '../data/siteData';
 import { 
   Code2, 
   Database, 
@@ -22,65 +22,16 @@ import {
   GraduationCap,
   Layers,
   Terminal,
-  Cpu,
   Zap
 } from 'lucide-react';
 
 function Home() {
-  const featuredProjects = [
-    {
-      id: 1,
-      title: 'SmartQC',
-      description: 'Lead generation and data quality assurance platform built with Java SpringBoot and PostgreSQL. Features automated data validation, real-time analytics, and secure API integrations.',
-      category: 'Backend Platform',
-      technologies: ['Java', 'SpringBoot', 'PostgreSQL', 'REST APIs', 'JWT'],
-      features: [
-        'Automated lead validation and scoring system',
-        'Real-time data quality monitoring dashboard',
-        'Secure API integrations with third-party services'
-      ],
-      icon: Database,
-      github: 'https://github.com/saifkhan',
-      live: 'https://smartqc-demo.com'
-    },
-    {
-      id: 2,
-      title: 'KiteCyber',
-      description: 'IT Security application with vulnerability assessment and penetration testing tools. Built using Node.js, Express.js, and MongoDB with advanced security features.',
-      category: 'Security Platform',
-      technologies: ['Node.js', 'Express.js', 'MongoDB', 'Security APIs', 'Nikto'],
-      features: [
-        'Automated vulnerability scanning and reporting',
-        'Penetration testing toolkit integration',
-        'Secure authentication and role-based access control'
-      ],
-      icon: Server,
-      github: 'https://github.com/saifkhan',
-      live: 'https://kitecyber-demo.com'
-    },
-    {
-      id: 3,
-      title: 'Market40',
-      description: 'News platform built with PHP CodeIgniter, MySQL, and Vue.js. Features content management, user authentication, and real-time news aggregation.',
-      category: 'Web Platform',
-      technologies: ['PHP CodeIgniter', 'MySQL', 'Vue.js', 'REST APIs'],
-      features: [
-        'Dynamic content management system',
-        'Real-time news aggregation from multiple sources',
-        'User authentication and personalized news feeds'
-      ],
-      icon: Cloud,
-      github: 'https://github.com/saifkhan',
-      live: 'https://market40-demo.com'
-    }
-  ];
-
   const techStack = [
-    { category: 'Languages', items: ['Java', 'C/C++', '.NET', 'JavaScript', 'HTML/CSS', 'MySQL', 'Postgres'], icon: Code2 },
-    { category: 'Frameworks', items: ['NodeJs', 'ExpressJs', 'SpringBoot', 'Spring Reactive', 'ReactJs', 'NextJs', 'Angular', 'PHP CodeIgniter'], icon: Server },
+    { category: 'Frontend', items: ['React.js', 'Next.js', 'Angular', 'Vue.js', 'JavaScript', 'HTML/CSS', 'Tailwind CSS'], icon: Layers },
+    { category: 'Backend', items: ['Java', 'Spring Boot', 'Spring WebFlux', 'Node.js', 'Express.js', 'PHP Laravel', 'CodeIgniter'], icon: Server },
     { category: 'Databases & Tools', items: ['MongoDB', 'MySQL', 'PostgreSQL', 'Git', 'GitHub', 'GitLab', 'Postman'], icon: Database },
-    { category: 'Styling & UI', items: ['Tailwind CSS', 'Bootstrap', 'React-Bootstrap'], icon: Layers },
-    { category: 'DevOps & Cloud', items: ['Cpanel', 'Render', 'Jira', 'Cloudflare', 'Nikto'], icon: Cloud },
+    { category: 'UI Engineering', items: ['Responsive Design', 'Tailwind CSS', 'Bootstrap', 'React-Bootstrap', 'Accessibility'], icon: Code2 },
+    { category: 'DevOps & Cloud', items: ['AWS Amplify', 'AWS S3', 'Cloudflare', 'Render', 'GitHub', 'Jira'], icon: Cloud },
     { category: 'Integrations', items: ['PayPal', 'Stripe', 'SendGrid', 'Firebase', 'JWT Auth'], icon: Briefcase }
   ];
 
@@ -102,16 +53,18 @@ function Home() {
 
   const experience = [
     {
-      position: 'Software Developer',
+      position: 'Fullstack Developer',
       company: 'Alltake Ites Pvt. Ltd.',
-      duration: '2023 - Present',
-      description: 'Building secure, scalable backend applications with Java SpringBoot, Node.js, and PHP. Specialized in REST APIs, database optimization, and third-party integrations.'
+      location: 'Kharadi, Pune',
+      duration: 'June 2024 – Present',
+      description: 'Develop and maintain complete web applications with React.js, Next.js, Tailwind CSS, Node.js, Express.js, Java Spring Boot, and PHP Laravel—from responsive interfaces and API integration through data, security, third-party services, and cloud deployment.'
     },
     {
       position: 'Software Developer',
       company: 'Correct Cloud Pvt. Ltd.',
-      duration: '2022 - 2023',
-      description: 'Developed full-stack applications with focus on backend security, API testing, and cloud integration. Worked with microservices architecture and DevOps practices.'
+      location: 'Kondhwa, Pune',
+      duration: 'April 2023 – May 2024',
+      description: 'Built a full-stack GitHub analytics application with Java Spring Boot, Spring WebFlux, Angular, Vue.js, PostgreSQL, and JDBC, including secure reactive APIs and real-time collaboration metrics.'
     }
   ];
 
@@ -139,126 +92,113 @@ function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <motion.section 
-        className="relative pb-32 px-4 sm:px-6 lg:px-8 bg-light-600 dark:bg-dark-600 overflow-hidden min-h-screen flex items-center"
-        initial="hidden"
+        className="relative pt-6 pb-14 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8 bg-light-600 dark:bg-dark-600 overflow-hidden border-b border-light-400 dark:border-dark-400"
+        initial={false}
         animate="visible"
         variants={containerVariants}
       >
         <TechBackground variant="circuit" />
         
-        <div className="max-w-7xl mx-auto text-center relative z-10 w-full">
-          <motion.div variants={itemVariants} className="mb-12">
-            {/* Profile Avatar */}
-            <motion.div 
-              className="mb-10 flex justify-center"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            >
-              <ProfileAvatar size="xlarge" />
-            </motion.div>
-
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-light-100 dark:text-dark-100 mb-8 leading-tight">
-              <span className="block mb-2">Hi, I'm</span>
-              <span className="gradient-text block">
-                Saif Khan
-              </span>
-              <span className="wave inline-block ml-4">👋</span>
-            </h1>
-            
-            {/* Tech-themed subtitle with typing effect */}
-            <div className="mb-8">
-              <motion.div 
-                className="inline-flex items-center px-6 py-3 bg-light-400/50 dark:bg-dark-400/50 rounded-full border border-primary/20 mb-6 backdrop-blur-sm"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-              >
-                <Terminal className="h-5 w-5 text-primary mr-3" />
-                <span className="text-base text-primary font-mono font-semibold">./developer --mode=backend</span>
-              </motion.div>
+        <div className="max-w-7xl mx-auto relative z-10 w-full grid lg:grid-cols-[1.25fr_.75fr] gap-14 lg:gap-16 xl:gap-24 items-start">
+          <motion.div variants={itemVariants} className="text-left">
+            <div className="inline-flex items-center gap-3 mb-6 sm:mb-8 font-mono text-xs uppercase tracking-[0.18em] text-light-300 dark:text-dark-200">
+              <span className="w-8 h-px bg-primary" />
+              Fullstack Developer
             </div>
+            <h1 className="text-[2.65rem] min-[360px]:text-5xl md:text-7xl lg:text-[4.75rem] xl:text-[5.5rem] font-display font-bold text-light-100 dark:text-dark-100 mb-6 sm:mb-8 leading-[0.98]">
+              Building complete
+              <span className="gradient-text block">digital products.</span>
+            </h1>
 
-            <p className="text-xl md:text-2xl lg:text-3xl text-light-200 dark:text-dark-200 max-w-4xl mx-auto leading-relaxed mb-4">
-              <span className="font-bold text-primary dark:text-purple-400">Software Developer</span> building secure, scalable applications in Java, Node.js, and PHP.
+            <p className="text-xl md:text-2xl text-light-200 dark:text-dark-200 max-w-2xl leading-relaxed mb-4">
+              I'm Saif Khan, a Fullstack Developer crafting responsive interfaces and dependable systems for complete web applications.
             </p>
-            <p className="text-lg md:text-xl text-light-300 dark:text-dark-300 max-w-3xl mx-auto leading-relaxed">
-              Experienced in REST APIs, database optimization, security hardening, and cloud integration.
+            <p className="text-base md:text-lg text-light-300 dark:text-dark-200 max-w-2xl leading-relaxed">
+              From React and Next.js experiences to APIs, databases, integrations, and cloud deployment—built for production.
             </p>
-          </motion.div>
 
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link to="/projects">
-                <TechButton 
-                  variant="primary" 
-                  size="large" 
-                  icon={ArrowRight}
-                  className="shadow-lg hover:shadow-xl hover:shadow-primary/25 transition-all duration-300"
-                >
-                  View My Work
-                </TechButton>
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mt-8 sm:mt-10 mb-8 sm:mb-10">
+              <Link to="/projects" className="w-full sm:w-auto">
+                <TechButton variant="primary" size="large" icon={ArrowRight} className="w-full sm:w-auto">View selected work</TechButton>
               </Link>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <a href="/Saif_Khan_Resume.pdf" download="Saif_Khan_Resume.pdf">
-                <TechButton 
-                  variant="outline" 
-                  size="large" 
-                  icon={Download}
-                  iconPosition="left"
-                  className="shadow-lg hover:shadow-xl hover:shadow-secondary/25 transition-all duration-300"
-                >
-                  Download Resume
-                </TechButton>
+              <a href="/Saif_Khan_Resume.pdf" download="Saif_Khan_Resume.pdf" className="w-full sm:w-auto">
+                <TechButton variant="outline" size="large" icon={Download} iconPosition="left" className="w-full sm:w-auto">Download résumé</TechButton>
               </a>
             </motion.div>
+
+            <div className="grid grid-cols-1 min-[360px]:grid-cols-3 border-y border-light-400 dark:border-dark-400 max-w-2xl">
+              {[
+                ['Based in', 'Pune, India'],
+                ['Experience', '2023 — Present'],
+                ['Focus', 'Frontend + Backend']
+              ].map(([label, value]) => (
+                <div key={label} className="py-3 min-[360px]:py-4 pr-3 border-b last:border-b-0 min-[360px]:border-b-0 border-light-400 dark:border-dark-400">
+                  <span className="block text-[10px] sm:text-xs uppercase tracking-widest text-light-300 dark:text-dark-300 mb-1">{label}</span>
+                  <span className="text-xs sm:text-sm font-semibold text-light-100 dark:text-dark-100">{value}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="flex justify-center space-x-6">
-            {[
-              { href: "https://github.com/saifxx75", icon: Github, label: "GitHub", color: "hover:text-primary" },
-              { href: "https://linkedin.com", icon: Linkedin, label: "LinkedIn", color: "hover:text-blue-400" },
-              { href: "mailto:saifkhan0409.sk@gmail.com", icon: Mail, label: "Email", color: "hover:text-secondary" }
-            ].map(({ href, icon: Icon, label, color }, index) => (
-              <motion.a
-                key={label}
-                href={href}
-                target={href.startsWith('mailto:') ? undefined : "_blank"}
-                rel={href.startsWith('mailto:') ? undefined : "noopener noreferrer"}
-                className={`relative p-4 bg-light-400/50 dark:bg-dark-400/50 backdrop-blur-sm rounded-xl border border-light-300/50 dark:border-dark-300/50 shadow-md hover:shadow-lg transition-all duration-300 text-light-200 dark:text-dark-200 ${color} group`}
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 + index * 0.1 }}
-              >
-                <Icon className="h-6 w-6" />
-                
-                {/* Tech accent corners */}
-                <div className="absolute top-0 left-0 w-2 h-2 border-l border-t border-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-0 right-0 w-2 h-2 border-r border-b border-secondary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Tooltip */}
-                <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-light-300 dark:bg-dark-300 text-light-100 dark:text-dark-100 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  {label}
+          <motion.aside variants={itemVariants} className="relative max-w-xl lg:max-w-none mx-auto w-full border border-light-400 dark:border-dark-400 bg-light-500/90 dark:bg-dark-500/90 shadow-[0_24px_70px_rgba(15,23,42,0.12)]">
+            <div className="absolute -top-6 left-0 text-xs font-mono text-primary tracking-widest">01 / ENGINEERING PROFILE</div>
+            <div className="p-5 min-[360px]:p-7 sm:p-9">
+              <div className="flex flex-col min-[360px]:flex-row items-start justify-between gap-4 min-[360px]:gap-5 pb-7 border-b border-light-400 dark:border-dark-400">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.18em] text-light-300 dark:text-dark-300 mb-3">Saif Khan</p>
+                  <h2 className="font-display font-bold text-2xl sm:text-3xl text-light-100 dark:text-dark-100 leading-tight">
+                    Fullstack Developer
+                  </h2>
+                  <p className="text-sm text-light-300 dark:text-dark-200 mt-2">Pune, Maharashtra, India</p>
                 </div>
-              </motion.a>
-            ))}
-          </motion.div>
+                <span className="inline-flex items-center gap-2 text-xs font-semibold text-light-200 dark:text-dark-200 whitespace-nowrap">
+                  <span className="w-2 h-2 bg-emerald-500 rounded-full" /> Available
+                </span>
+              </div>
+
+              <dl className="divide-y divide-light-400 dark:divide-dark-400">
+                {[
+                  ['Specialization', 'End-to-end web products'],
+                  ['Frontend', 'React · Next.js · Angular · Vue'],
+                  ['Backend', 'Spring Boot · Node.js · Laravel'],
+                  ['Data + cloud', 'PostgreSQL · MongoDB · AWS'],
+                  ['Experience', '3+ years · 2023—Present']
+                ].map(([label, value]) => (
+                  <div key={label} className="grid grid-cols-1 min-[360px]:grid-cols-[6.75rem_1fr] sm:grid-cols-[7.5rem_1fr] gap-1 min-[360px]:gap-3 sm:gap-4 py-4">
+                    <dt className="text-[11px] uppercase tracking-widest text-light-300 dark:text-dark-300">{label}</dt>
+                    <dd className="text-sm font-semibold text-light-100 dark:text-dark-100">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+            <div className="flex items-center justify-between gap-3 px-5 min-[360px]:px-7 sm:px-9 py-5 bg-light-400/50 dark:bg-dark-400/50 border-t border-light-400 dark:border-dark-400">
+              <span className="text-xs font-mono tracking-widest text-light-300 dark:text-dark-300">CONNECT</span>
+              <div className="flex gap-2">
+              {[
+                { href: contactLinks.github, icon: Github, label: "GitHub" },
+                { href: contactLinks.linkedin, icon: Linkedin, label: "LinkedIn" },
+                { href: contactLinks.email, icon: Mail, label: "Email" }
+              ].map(({ href, icon: Icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  target={href.startsWith('mailto:') ? undefined : "_blank"}
+                  rel={href.startsWith('mailto:') ? undefined : "noopener noreferrer"}
+                  className="p-3 border border-light-400 dark:border-dark-400 text-light-200 dark:text-dark-200 hover:text-primary hover:border-primary">
+                  <Icon className="h-5 w-5" />
+                </a>
+              ))}
+              </div>
+            </div>
+          </motion.aside>
         </div>
       </motion.section>
 
       {/* Experience & Education Section */}
       <motion.section 
         className="relative py-20 px-4 sm:px-6 lg:px-8 bg-light-500 dark:bg-dark-500 overflow-hidden"
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true }}
         variants={containerVariants}
@@ -266,15 +206,14 @@ function Home() {
         <TechBackground variant="grid" />
         
         <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-light-400/50 dark:bg-dark-400/50 rounded-full border border-primary/20 mb-4">
-              <Cpu className="h-4 w-4 text-primary mr-2" />
-              <span className="text-sm text-primary font-mono">journey.map(experience ={'>'} growth)</span>
-            </div>
-            <h2 className="text-4xl font-bold text-light-100 dark:text-dark-100 mb-4 section-heading">Experience & Education</h2>
-            <p className="text-xl text-light-200 dark:text-dark-200 max-w-2xl mx-auto">
+          <motion.div variants={itemVariants} className="mb-16 border-t border-light-400 dark:border-dark-400 pt-6 md:grid md:grid-cols-[1fr_2fr] gap-10">
+            <div className="text-xs text-primary font-mono tracking-[0.18em] mb-4 md:mb-0">02 / EXPERIENCE</div>
+            <div>
+            <h2 className="text-4xl font-bold text-light-100 dark:text-dark-100 mb-4">Experience & Education</h2>
+            <p className="text-lg text-light-200 dark:text-dark-200 max-w-2xl">
               My professional journey and academic background
             </p>
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -295,13 +234,14 @@ function Home() {
                     glowEffect={true}
                     className="p-6"
                   >
-                    <div className="flex items-start justify-between mb-3">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-3">
                       <div>
                         <h4 className="text-lg font-semibold text-primary mb-1">{job.position}</h4>
                         <p className="text-light-100 dark:text-dark-100 font-medium">{job.company}</p>
+                        <p className="text-light-300 dark:text-dark-300 text-sm mt-1">{job.location}</p>
                       </div>
-                      <div className="flex items-center px-3 py-1 bg-primary/10 rounded-full">
-                        <div className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse" />
+                      <div className="flex items-center self-start px-3 py-1 bg-primary/10 rounded-full">
+                        <div className="w-2 h-2 bg-primary rounded-full mr-2" />
                         <p className="text-primary text-sm font-mono">{job.duration}</p>
                       </div>
                     </div>
@@ -335,7 +275,7 @@ function Home() {
                         <p className="text-light-200 dark:text-dark-200 text-sm mt-1">{edu.location}</p>
                       </div>
                       <div className="flex items-center px-3 py-1 bg-secondary/10 rounded-full">
-                        <div className="w-2 h-2 bg-secondary rounded-full mr-2 animate-pulse" />
+                        <div className="w-2 h-2 bg-secondary rounded-full mr-2" />
                         <p className="text-secondary text-sm font-mono">{edu.year}</p>
                       </div>
                     </div>
@@ -349,8 +289,8 @@ function Home() {
 
       {/* Tech Stack Section */}
       <motion.section 
-        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-dark-600 overflow-hidden"
-        initial="hidden"
+        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-light-600 dark:bg-dark-600 overflow-hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true }}
         variants={containerVariants}
@@ -374,7 +314,7 @@ function Home() {
               <motion.div
                 key={tech.category}
                 variants={itemVariants}
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
@@ -394,7 +334,7 @@ function Home() {
                     {tech.items.map((item, itemIndex) => (
                       <motion.div
                         key={item}
-                        initial={{ opacity: 0, scale: 0.8 }}
+                        initial={false}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ delay: (index * 0.1) + (itemIndex * 0.05) }}
                       >
@@ -411,8 +351,8 @@ function Home() {
 
       {/* CTA Section */}
       <motion.section 
-        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary/90 to-secondary/90 overflow-hidden"
-        initial="hidden"
+        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-primary overflow-hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true }}
         variants={containerVariants}
@@ -460,7 +400,7 @@ function Home() {
       {/* Featured Projects Carousel */}
       <motion.section 
         className="py-20 px-4 sm:px-6 lg:px-8 bg-light-500 dark:bg-dark-500"
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true }}
         variants={containerVariants}
@@ -471,12 +411,12 @@ function Home() {
               Featured Projects
             </h2>
             <p className="text-xl text-light-200 dark:text-dark-200 max-w-2xl mx-auto">
-              Explore some of my key backend development projects showcasing scalable architecture and secure implementations
+              Explore full-stack work spanning responsive interfaces, secure services, data, and production delivery
             </p>
           </motion.div>
           
           <motion.div variants={itemVariants}>
-            <ProjectCarousel projects={featuredProjects} />
+            <ProjectCarousel projects={projects} />
           </motion.div>
 
           <motion.div variants={itemVariants} className="text-center mt-8">

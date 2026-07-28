@@ -10,7 +10,6 @@ import {
   Send, 
   Github, 
   Linkedin, 
-  Twitter,
   MessageSquare,
   Clock,
   CheckCircle,
@@ -18,6 +17,7 @@ import {
   User,
   AtSign
 } from 'lucide-react';
+import { contactLinks } from '../data/siteData';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -55,20 +55,20 @@ function Contact() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'saifkhan0409.sk@gmail.com',
-      href: 'mailto:saifkhan0409.sk@gmail.com'
+      value: contactLinks.emailDisplay,
+      href: contactLinks.email
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+91 8423290835',
-      href: '#'
+      value: contactLinks.phoneDisplay,
+      href: contactLinks.phone
     },
     {
       icon: MapPin,
       label: 'Location',
       value: 'Pune, Maharashtra, India',
-      href: '#'
+      href: null
     }
   ];
 
@@ -76,20 +76,14 @@ function Contact() {
     {
       icon: Github,
       label: 'GitHub',
-      href: 'https://github.com/saifxx75',
+      href: contactLinks.github,
       color: 'hover:text-gray-900'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com',
+      href: contactLinks.linkedin,
       color: 'hover:text-blue-600'
-    },
-    {
-      icon: Twitter,
-      label: 'Twitter',
-      href: 'https://twitter.com',
-      color: 'hover:text-blue-400'
     }
   ];
 
@@ -120,7 +114,7 @@ function Contact() {
         {/* Header */}
         <motion.div 
           className="text-center mb-16"
-          initial="hidden"
+          initial={false}
           animate="visible"
           variants={containerVariants}
         >
@@ -146,25 +140,25 @@ function Contact() {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Information */}
           <motion.div 
             className="space-y-8"
-            initial="hidden"
+            initial={false}
             animate="visible"
             variants={containerVariants}
           >
-            <TechCard variant="primary" glowEffect={true} className="p-8">
+            <TechCard variant="primary" glowEffect={true} className="p-5 sm:p-8">
               <motion.div variants={itemVariants}>
                 <div className="flex items-center mb-6">
                   <div className="p-2 bg-primary/20 rounded-lg mr-3">
                     <MessageSquare className="h-6 w-6 text-primary" />
                   </div>
-                  <h2 className="text-3xl font-bold text-light-100 dark:text-dark-100 section-heading">Let's Connect</h2>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-light-100 dark:text-dark-100 section-heading">Let's Connect</h2>
                 </div>
                 <p className="text-lg text-light-200 dark:text-dark-200">
-                  I'm always interested in discussing new backend development opportunities, 
-                  challenging projects, or collaborating on innovative solutions. Let's connect 
+                  I'm always interested in discussing full-stack development opportunities,
+                  complete product builds, or collaborating on innovative solutions. Let's connect
                   and explore how we can work together!
                 </p>
               </motion.div>
@@ -175,22 +169,34 @@ function Contact() {
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={info.label}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={false}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
                   <TechCard variant="default" className="p-4 group cursor-pointer">
-                    <a href={info.href} className="flex items-center">
+                    {info.href ? (
+                    <a href={info.href} className="flex items-center min-w-0">
                       <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4 group-hover:bg-primary/30 transition-colors duration-200">
                         <info.icon className="h-6 w-6 text-primary" />
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <h3 className="font-semibold text-light-100 dark:text-dark-100 group-hover:text-primary transition-colors duration-200">
                           {info.label}
                         </h3>
-                        <p className="text-light-200 dark:text-dark-200">{info.value}</p>
+                        <p className="text-light-200 dark:text-dark-200 break-words">{info.value}</p>
                       </div>
                     </a>
+                    ) : (
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4">
+                        <info.icon className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-light-100 dark:text-dark-100">{info.label}</h3>
+                        <p className="text-light-200 dark:text-dark-200">{info.value}</p>
+                      </div>
+                    </div>
+                    )}
                   </TechCard>
                 </motion.div>
               ))}
@@ -212,17 +218,18 @@ function Contact() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`Open Saif Khan's ${social.label} profile in a new tab`}
                       className="w-12 h-12 bg-light-500 dark:bg-dark-500/50 rounded-lg shadow-md flex items-center justify-center text-light-200 dark:text-dark-200 hover:text-primary transition-all duration-200 hover:shadow-lg border border-light-300/50 dark:border-dark-300/50 group"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
-                      initial={{ opacity: 0, scale: 0.8 }}
+                      initial={false}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.5 + index * 0.1 }}
                     >
                       <social.icon className="h-6 w-6" />
                       
                       {/* Tooltip */}
-                      <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-dark-300 text-light-100 dark:text-dark-100 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-light-100 dark:bg-dark-300 text-white dark:text-dark-100 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                         {social.label}
                       </div>
                     </motion.a>
@@ -241,7 +248,7 @@ function Contact() {
                 <h3 className="font-semibold text-secondary">Current Availability</h3>
               </div>
               <p className="text-light-100 dark:text-dark-100">
-                ✅ Available for new backend projects and opportunities
+                ✅ Available for full-stack projects and opportunities
               </p>
               <p className="text-sm text-light-200 dark:text-dark-200 mt-2">
                 Typically respond within 24 hours
@@ -251,11 +258,11 @@ function Contact() {
 
           {/* Contact Form */}
           <motion.div 
-            initial="hidden"
+            initial={false}
             animate="visible"
             variants={containerVariants}
           >
-            <TechCard variant="accent" glowEffect={true} className="p-8">
+            <TechCard variant="accent" glowEffect={true} className="p-5 sm:p-8">
               <motion.div variants={itemVariants}>
                 <div className="flex items-center mb-6">
                   <div className="p-2 bg-primary/20 rounded-lg mr-3">
@@ -266,7 +273,7 @@ function Contact() {
 
               {isSubmitted && (
                 <motion.div 
-                  initial={{ opacity: 0, y: -10 }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0 }}
                   className="mb-6 p-4 bg-secondary/10 border border-secondary/30 rounded-lg flex items-center"
                 >
@@ -278,7 +285,7 @@ function Contact() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <motion.div
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={false}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 }}
                   >
@@ -298,7 +305,7 @@ function Contact() {
                     />
                   </motion.div>
                   <motion.div
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={false}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 }}
                   >
@@ -320,7 +327,7 @@ function Contact() {
                 </div>
 
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                 >
@@ -341,7 +348,7 @@ function Contact() {
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                 >
@@ -357,12 +364,12 @@ function Contact() {
                     required
                     rows={6}
                     className="w-full px-4 py-3 border border-light-300/50 dark:border-dark-300/50 bg-light-500 dark:bg-dark-500/50 text-light-100 dark:text-dark-100 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary/50 transition-all duration-200 resize-none backdrop-blur-sm"
-                    placeholder="Tell me about your backend project or opportunity..."
+                    placeholder="Tell me about your web application, product, or opportunity..."
                   />
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
                 >

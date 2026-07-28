@@ -17,7 +17,7 @@ const TechButton = ({
     secondary: 'bg-secondary hover:bg-secondary/90 text-white border-secondary/50',
     outline: 'bg-transparent hover:bg-primary/10 text-primary border-primary hover:border-primary/70',
     ghost: 'bg-transparent hover:bg-light-300 dark:hover:bg-dark-400 text-light-200 dark:text-dark-200 hover:text-primary border-transparent',
-    tech: 'bg-gradient-to-r from-primary/20 to-secondary/20 hover:from-primary/30 hover:to-secondary/30 text-primary border-primary/30'
+    tech: 'bg-primary/5 hover:bg-primary/10 text-primary border-primary/30'
   };
 
   const sizes = {
@@ -49,19 +49,6 @@ const TechButton = ({
       disabled={disabled || loading}
       {...props}
     >
-      {/* Tech pattern background */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
-        <svg className="w-full h-full" viewBox="0 0 100 100">
-          <defs>
-            <pattern id={`button-pattern-${variant}`} x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="10" cy="10" r="1" fill="currentColor" opacity="0.3" />
-              <path d="M0,10 L20,10 M10,0 L10,20" stroke="currentColor" strokeWidth="0.5" opacity="0.2" />
-            </pattern>
-          </defs>
-          <rect width="100" height="100" fill={`url(#button-pattern-${variant})`} />
-        </svg>
-      </div>
-
       {/* Content */}
       <div className="relative z-10 flex items-center">
         {Icon && iconPosition === 'left' && (
