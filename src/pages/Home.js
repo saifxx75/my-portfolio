@@ -8,6 +8,12 @@ import TechBackground from '../components/TechBackground';
 import TechCard from '../components/TechCard';
 import TechButton from '../components/TechButton';
 import { contactLinks, projects } from '../data/siteData';
+import {
+  pageHeaderVariants,
+  sectionVariants as containerVariants,
+  revealItemVariants as itemVariants,
+  revealViewport
+} from '../utils/motion';
 import { 
   Code2, 
   Database, 
@@ -19,6 +25,7 @@ import {
   Linkedin,
   Mail,
   Briefcase,
+  BrainCircuit,
   GraduationCap,
   Layers,
   Terminal,
@@ -29,9 +36,10 @@ function Home() {
   const techStack = [
     { category: 'Frontend', items: ['React.js', 'Next.js', 'Angular', 'Vue.js', 'JavaScript', 'HTML/CSS', 'Tailwind CSS'], icon: Layers },
     { category: 'Backend', items: ['Java', 'Spring Boot', 'Spring WebFlux', 'Node.js', 'Express.js', 'PHP Laravel', 'CodeIgniter'], icon: Server },
+    { category: 'AI Engineering', items: ['Python', 'FastAPI', 'LLMs', 'Ollama', 'RAG', 'Pinecone', 'Vector Databases', 'MinIO', 'Celery'], icon: BrainCircuit },
     { category: 'Databases & Tools', items: ['MongoDB', 'MySQL', 'PostgreSQL', 'Git', 'GitHub', 'GitLab', 'Postman'], icon: Database },
     { category: 'UI Engineering', items: ['Responsive Design', 'Tailwind CSS', 'Bootstrap', 'React-Bootstrap', 'Accessibility'], icon: Code2 },
-    { category: 'DevOps & Cloud', items: ['AWS Amplify', 'AWS S3', 'Cloudflare', 'Render', 'GitHub', 'Jira'], icon: Cloud },
+    { category: 'DevOps & Cloud', items: ['AWS Amplify', 'AWS S3', 'Cloudflare', 'Render', 'Docker', 'Kubernetes', 'GitHub', 'Jira'], icon: Cloud },
     { category: 'Integrations', items: ['PayPal', 'Stripe', 'SendGrid', 'Firebase', 'JWT Auth'], icon: Briefcase }
   ];
 
@@ -68,34 +76,15 @@ function Home() {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
-    }
-  };
-
   return (
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen">
       {/* Hero Section */}
       <motion.section 
         className="relative pt-6 pb-14 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8 bg-light-600 dark:bg-dark-600 overflow-hidden border-b border-light-400 dark:border-dark-400"
-        initial={false}
+        initial="hidden"
         animate="visible"
-        variants={containerVariants}
+        variants={pageHeaderVariants}
       >
         <TechBackground variant="circuit" />
         
@@ -111,10 +100,10 @@ function Home() {
             </h1>
 
             <p className="text-xl md:text-2xl text-light-200 dark:text-dark-200 max-w-2xl leading-relaxed mb-4">
-              I'm Saif Khan, a Fullstack Developer crafting responsive interfaces and dependable systems for complete web applications.
+              I'm Saif Khan, a Fullstack Developer crafting responsive interfaces, dependable systems, and practical AI workflows for complete digital products.
             </p>
             <p className="text-base md:text-lg text-light-300 dark:text-dark-200 max-w-2xl leading-relaxed">
-              From React and Next.js experiences to APIs, databases, integrations, and cloud deployment—built for production.
+              From React and Next.js experiences to APIs, enterprise AI, data, integrations, and cloud deployment—built for production.
             </p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mt-8 sm:mt-10 mb-8 sm:mb-10">
@@ -158,10 +147,10 @@ function Home() {
 
               <dl className="divide-y divide-light-400 dark:divide-dark-400">
                 {[
-                  ['Specialization', 'End-to-end web products'],
+                  ['Specialization', 'Full-stack + AI products'],
                   ['Frontend', 'React · Next.js · Angular · Vue'],
                   ['Backend', 'Spring Boot · Node.js · Laravel'],
-                  ['Data + cloud', 'PostgreSQL · MongoDB · AWS'],
+                  ['AI + delivery', 'RAG · Ollama · Docker · AWS'],
                   ['Experience', '3+ years · 2023—Present']
                 ].map(([label, value]) => (
                   <div key={label} className="grid grid-cols-1 min-[360px]:grid-cols-[6.75rem_1fr] sm:grid-cols-[7.5rem_1fr] gap-1 min-[360px]:gap-3 sm:gap-4 py-4">
@@ -198,9 +187,9 @@ function Home() {
       {/* Experience & Education Section */}
       <motion.section 
         className="relative py-20 px-4 sm:px-6 lg:px-8 bg-light-500 dark:bg-dark-500 overflow-hidden"
-        initial={false}
+        initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={revealViewport}
         variants={containerVariants}
       >
         <TechBackground variant="grid" />
@@ -290,9 +279,9 @@ function Home() {
       {/* Tech Stack Section */}
       <motion.section 
         className="relative py-20 px-4 sm:px-6 lg:px-8 bg-light-600 dark:bg-dark-600 overflow-hidden"
-        initial={false}
+        initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={revealViewport}
         variants={containerVariants}
       >
         <TechBackground variant="circuit" />
@@ -305,7 +294,7 @@ function Home() {
             </div>
             <h2 className="text-4xl font-bold text-light-100 dark:text-dark-100 mb-4 section-heading">Tech Stack</h2>
             <p className="text-xl text-light-200 dark:text-dark-200 max-w-2xl mx-auto">
-              Technologies and tools I use to bring ideas to life
+              Technologies and tools I use across interfaces, services, AI workflows, data, and delivery
             </p>
           </motion.div>
 
@@ -314,15 +303,11 @@ function Home() {
               <motion.div
                 key={tech.category}
                 variants={itemVariants}
-                initial={false}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
               >
                 <TechCard 
                   variant="accent" 
                   glowEffect={true}
-                  className="p-8 h-full tech-float"
-                  style={{ animationDelay: `${index * 0.5}s` }}
+                  className="p-8 h-full"
                 >
                   <div className="flex items-center mb-6">
                     <div className="p-2 bg-primary/20 rounded-lg mr-3">
@@ -352,9 +337,9 @@ function Home() {
       {/* CTA Section */}
       <motion.section 
         className="relative py-20 px-4 sm:px-6 lg:px-8 bg-primary overflow-hidden"
-        initial={false}
+        initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={revealViewport}
         variants={containerVariants}
       >
         {/* Tech pattern overlay */}
@@ -400,9 +385,9 @@ function Home() {
       {/* Featured Projects Carousel */}
       <motion.section 
         className="py-20 px-4 sm:px-6 lg:px-8 bg-light-500 dark:bg-dark-500"
-        initial={false}
+        initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={revealViewport}
         variants={containerVariants}
       >
         <div className="max-w-6xl mx-auto">
@@ -411,7 +396,7 @@ function Home() {
               Featured Projects
             </h2>
             <p className="text-xl text-light-200 dark:text-dark-200 max-w-2xl mx-auto">
-              Explore full-stack work spanning responsive interfaces, secure services, data, and production delivery
+              Explore full-stack and AI work spanning responsive interfaces, secure services, intelligent retrieval, data, and production delivery
             </p>
           </motion.div>
           

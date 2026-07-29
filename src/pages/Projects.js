@@ -6,6 +6,12 @@ import TechCard from '../components/TechCard';
 import TechButton from '../components/TechButton';
 import ProjectImage from '../components/ProjectImage';
 import { projects } from '../data/siteData';
+import {
+  pageHeaderVariants,
+  sectionVariants as containerVariants,
+  revealItemVariants as itemVariants,
+  revealViewport
+} from '../utils/motion';
 import { 
   ExternalLink, 
   Code, 
@@ -20,6 +26,7 @@ function Projects() {
 
   const categories = [
     { id: 'all', label: 'All Work', count: projects.length },
+    { id: 'ai', label: 'AI Systems', count: projects.filter(p => p.category === 'ai').length },
     { id: 'fullstack', label: 'Full-Stack Products', count: projects.filter(p => p.category === 'fullstack').length },
     { id: 'platform', label: 'Platform & APIs', count: projects.filter(p => p.category === 'platform').length }
   ];
@@ -27,25 +34,6 @@ function Projects() {
   const filteredProjects = filter === 'all' 
     ? projects 
     : projects.filter(project => project.category === filter);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
-    }
-  };
 
   return (
     <div className="min-h-screen bg-light-600 dark:bg-dark-600 py-12 relative overflow-hidden">
@@ -55,9 +43,9 @@ function Projects() {
         {/* Header */}
         <motion.div 
           className="text-center mb-16"
-          initial={false}
+          initial="hidden"
           animate="visible"
-          variants={containerVariants}
+          variants={pageHeaderVariants}
         >
           <motion.div 
             variants={itemVariants}
@@ -76,14 +64,14 @@ function Projects() {
             variants={itemVariants}
             className="text-xl text-light-200 dark:text-dark-200 max-w-3xl mx-auto"
           >
-            End-to-end applications spanning responsive interfaces, APIs, data, security, and deployment
+            End-to-end applications spanning responsive interfaces, APIs, enterprise AI, data, security, and deployment
           </motion.p>
         </motion.div>
 
         {/* Filter Tabs */}
         <motion.div 
           className="flex flex-col min-[375px]:flex-row min-[375px]:flex-wrap min-[375px]:justify-center gap-3 sm:gap-4 mb-12"
-          initial={false}
+          initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
@@ -92,14 +80,11 @@ function Projects() {
             <span className="text-sm text-primary font-mono">filter:</span>
           </div>
           
-          {categories.map((category, index) => (
+          {categories.map((category) => (
             <motion.div
               key={category.id}
               className="w-full min-[375px]:w-auto"
               variants={itemVariants}
-              initial={false}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
             >
               <TechButton
                 variant={filter === category.id ? 'primary' : 'ghost'}
@@ -116,7 +101,7 @@ function Projects() {
         {/* Projects Grid */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          initial={false}
+          initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
@@ -124,9 +109,6 @@ function Projects() {
             <motion.div
               key={project.id}
               variants={itemVariants}
-              initial={false}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
             >
               <TechCard 
                 variant="default" 
@@ -137,7 +119,7 @@ function Projects() {
                 {/* Project Image/Icon */}
                 <div className="relative">
                   <ProjectImage 
-                    projectType={project.category === 'platform' ? 'api' : 'web'}
+                    projectType={project.category === 'ai' ? 'ai' : project.category === 'platform' ? 'api' : 'web'}
                     title={project.title}
                     size="full"
                   />
@@ -219,6 +201,11 @@ function Projects() {
                         </TechButton>
                       </a>
                     )}
+                    {!project.live && project.accessLabel && (
+                      <span className="inline-flex min-h-[36px] items-center rounded-lg border border-light-300 bg-light-500 px-3 py-2 text-xs font-semibold text-light-200 dark:border-dark-300 dark:bg-dark-500 dark:text-dark-200">
+                        {project.accessLabel}
+                      </span>
+                    )}
                   </div>
                 </div>
               </TechCard>
@@ -229,9 +216,9 @@ function Projects() {
         {/* CTA Section */}
         <motion.div 
           className="text-center mt-16"
-          initial={false}
+          initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={revealViewport}
           variants={containerVariants}
         >
           <motion.div variants={itemVariants}>

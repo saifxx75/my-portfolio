@@ -1,6 +1,7 @@
 import {
   SiAngular,
   SiBootstrap,
+  SiCelery,
   SiChartdotjs,
   SiCloudflare,
   SiCodeigniter,
@@ -9,6 +10,7 @@ import {
   SiDotnet,
   SiExpress,
   SiFirebase,
+  SiFastapi,
   SiGithub,
   SiGitlab,
   SiHtml5,
@@ -16,12 +18,15 @@ import {
   SiJira,
   SiJsonwebtokens,
   SiLaravel,
+  SiKubernetes,
+  SiMinio,
   SiMongodb,
   SiMysql,
   SiNextdotjs,
   SiNodedotjs,
   SiOpenjdk,
   SiOwasp,
+  SiOllama,
   SiPaypal,
   SiPhp,
   SiPostgresql,
@@ -51,7 +56,7 @@ import {
   FaShieldHalved,
   FaUniversalAccess
 } from 'react-icons/fa6';
-import { Mail, PanelsTopLeft, Settings, Webhook } from 'lucide-react';
+import { BrainCircuit, DatabaseZap, Mail, Network, PanelsTopLeft, Search, Settings, Webhook } from 'lucide-react';
 
 export const normalizeSkillName = (skill = '') =>
   skill.toLowerCase().replace(/[^a-z0-9]+/g, '');
@@ -87,6 +92,14 @@ const logoDefinitions = [
   logo(SiCodeigniter, 'text-[#dd4814] dark:text-[#ff7043]', ['CodeIgniter', 'PHP CodeIgniter']),
   logo(SiPhp, 'text-[#5865a7] dark:text-[#8993be]', ['PHP']),
   logo(SiPython, 'text-[#3776ab] dark:text-[#ffd43b]', ['Python']),
+  logo(SiFastapi, 'text-[#087f6d] dark:text-[#20c997]', ['FastAPI']),
+  logo(SiOllama, 'text-light-100 dark:text-white', ['Ollama']),
+  logo(BrainCircuit, 'text-[#2563eb] dark:text-[#60a5fa]', ['LLM', 'LLMs']),
+  logo(Search, 'text-[#0891b2] dark:text-[#67e8f9]', ['RAG']),
+  logo(Network, 'text-[#2563eb] dark:text-[#60a5fa]', ['Pinecone']),
+  logo(DatabaseZap, 'text-[#0f766e] dark:text-[#5eead4]', ['Vector Database', 'Vector Databases']),
+  logo(SiMinio, 'text-[#c72c48] dark:text-[#f0526d]', ['MinIO']),
+  logo(SiCelery, 'text-[#2f855a] dark:text-[#9acb5b]', ['Celery']),
   logo(SiDotnet, 'text-[#512bd4] dark:text-[#a88bfa]', ['.NET', 'Dotnet']),
 
   logo(SiMongodb, 'text-[#27893f] dark:text-[#47a248]', ['MongoDB']),
@@ -98,6 +111,7 @@ const logoDefinitions = [
   logo(SiGitlab, 'text-[#e24329] dark:text-[#fc6d26]', ['GitLab']),
   logo(SiPostman, 'text-[#e94e1b] dark:text-[#ff6c37]', ['Postman']),
   logo(SiDocker, 'text-[#0878c9] dark:text-[#2496ed]', ['Docker']),
+  logo(SiKubernetes, 'text-[#326ce5] dark:text-[#7aa2f7]', ['Kubernetes', 'K8s']),
   logo(SiSocketdotio, 'text-light-100 dark:text-white', ['Socket.io', 'WebSocket']),
 
   logo(SiBootstrap, 'text-[#6441a5] dark:text-[#9b72e8]', ['Bootstrap']),

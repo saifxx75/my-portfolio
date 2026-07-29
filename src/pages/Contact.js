@@ -18,6 +18,11 @@ import {
   AtSign
 } from 'lucide-react';
 import { contactLinks } from '../data/siteData';
+import {
+  pageHeaderVariants,
+  sectionVariants as containerVariants,
+  revealItemVariants as itemVariants
+} from '../utils/motion';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -87,25 +92,6 @@ function Contact() {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
-    }
-  };
-
   return (
     <div className="min-h-screen bg-light-600 dark:bg-dark-600 py-12 relative overflow-hidden">
       <TechBackground variant="circuit" />
@@ -114,9 +100,9 @@ function Contact() {
         {/* Header */}
         <motion.div 
           className="text-center mb-16"
-          initial={false}
+          initial="hidden"
           animate="visible"
-          variants={containerVariants}
+          variants={pageHeaderVariants}
         >
           <motion.div 
             variants={itemVariants}
@@ -144,7 +130,7 @@ function Contact() {
           {/* Contact Information */}
           <motion.div 
             className="space-y-8"
-            initial={false}
+            initial="hidden"
             animate="visible"
             variants={containerVariants}
           >
@@ -258,7 +244,7 @@ function Contact() {
 
           {/* Contact Form */}
           <motion.div 
-            initial={false}
+            initial="hidden"
             animate="visible"
             variants={containerVariants}
           >

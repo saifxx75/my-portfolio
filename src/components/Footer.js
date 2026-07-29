@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Code2, Github, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { contactLinks } from '../data/siteData';
+import { revealViewport, subtleRevealVariants } from '../utils/motion';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -24,10 +25,10 @@ function Footer() {
   return (
     <motion.footer 
       className="bg-light-500 dark:bg-dark-500 text-light-100 dark:text-dark-100 border-t border-light-300/30 dark:border-dark-300/30"
-      initial={false}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={revealViewport}
+      variants={subtleRevealVariants}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">

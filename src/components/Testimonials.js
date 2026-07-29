@@ -1,6 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Quote, Star } from 'lucide-react';
+import {
+  sectionVariants as containerVariants,
+  revealItemVariants as itemVariants,
+  revealViewport,
+  professionalCardHover
+} from '../utils/motion';
 
 function Testimonials() {
   const testimonials = [
@@ -33,33 +39,14 @@ function Testimonials() {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
-    }
-  };
-
   return (
     <section className="py-16 bg-light-500 dark:bg-dark-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
-          initial={false}
+          initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={revealViewport}
           variants={containerVariants}
         >
           <motion.h2 
@@ -78,16 +65,17 @@ function Testimonials() {
 
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          initial={false}
+          initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={revealViewport}
           variants={containerVariants}
         >
           {testimonials.map((testimonial) => (
             <motion.div
               key={testimonial.id}
               variants={itemVariants}
-              className="bg-white dark:bg-dark-400 rounded-xl p-6 shadow-lg border border-light-400 dark:border-dark-300 relative"
+              whileHover={professionalCardHover}
+              className="motion-card bg-white dark:bg-dark-400 rounded-xl p-6 shadow-lg border border-light-400 dark:border-dark-300 relative"
             >
               <Quote className="h-8 w-8 text-primary mb-4 opacity-50" />
               

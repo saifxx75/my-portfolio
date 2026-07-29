@@ -40,7 +40,7 @@ function ProjectCarousel({ projects }) {
   const currentProject = projects[currentIndex];
 
   return (
-    <div className="relative bg-light-400 dark:bg-dark-400 rounded-xl shadow-lg overflow-hidden border border-light-300 dark:border-dark-300">
+    <div className="motion-card relative bg-light-400 dark:bg-dark-400 rounded-xl shadow-lg overflow-hidden border border-light-300 dark:border-dark-300">
       {/* Main Content */}
       <div className="relative min-h-[43rem] min-[360px]:min-h-[40rem] sm:min-h-[35rem] md:min-h-[25rem]">
         <AnimatePresence mode="wait">
@@ -114,6 +114,11 @@ function ProjectCarousel({ projects }) {
                     <ExternalLink className="h-4 w-4 mr-2" />
                     Live Demo
                   </a>
+                )}
+                {!currentProject.live && currentProject.accessLabel && (
+                  <span className="inline-flex items-center rounded-lg border border-light-300 bg-light-500 px-3 py-2 text-xs font-semibold text-light-200 dark:border-dark-300 dark:bg-dark-500 dark:text-dark-200">
+                    {currentProject.accessLabel}
+                  </span>
                 )}
               </div>
             </div>

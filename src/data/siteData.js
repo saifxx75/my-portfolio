@@ -1,4 +1,4 @@
-import { BarChart3, Megaphone, ShieldCheck, ShoppingBag } from 'lucide-react';
+import { BarChart3, BrainCircuit, Megaphone, ShieldCheck, ShoppingBag } from 'lucide-react';
 
 export const contactLinks = {
   github: 'https://github.com/saifxx75',
@@ -10,6 +10,24 @@ export const contactLinks = {
 };
 
 export const projects = [
+  {
+    id: 'enterprise-ai-system',
+    title: 'Enterprise AI System',
+    description: 'An enterprise AI platform built around private LLM workflows, retrieval-augmented generation, vector search, asynchronous processing, object storage, and containerized deployment.',
+    technologies: ['Python', 'FastAPI', 'LLMs', 'Ollama', 'RAG', 'Pinecone', 'Vector Databases', 'MinIO', 'Celery', 'Docker', 'Kubernetes'],
+    category: 'ai',
+    categoryLabel: 'Enterprise AI Platform',
+    accessLabel: 'Private system',
+    features: [
+      'Private and local LLM workflows with Ollama',
+      'RAG pipelines and semantic retrieval',
+      'Pinecone and vector-database search',
+      'Asynchronous processing with Celery',
+      'MinIO object storage',
+      'Containerized deployment with Docker and Kubernetes'
+    ],
+    icon: BrainCircuit
+  },
   {
     id: 'smartqc',
     title: 'SmartQC',

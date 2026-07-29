@@ -1,0 +1,330 @@
+SAIF KHAN — FULLSTACK DEVELOPER
+================================
+
+PROFILE
+-------
+Name: Saif Khan
+Role: Fullstack Developer
+Location: Pune, Maharashtra, India
+Professional Experience: 3+ years (2023–Present)
+
+Saif Khan is a Fullstack Developer who builds complete, production-ready web
+applications. He works across responsive frontend interfaces, backend services,
+REST APIs, databases, enterprise AI workflows, security, third-party
+integrations, performance optimization, and cloud deployment.
+
+He is comfortable working on both frontend and backend development. His focus is
+on creating accessible and polished user experiences, connecting them to secure
+and maintainable services, designing reliable data workflows, and taking
+features through deployment.
+
+He also has hands-on experience developing enterprise AI systems with Python,
+FastAPI, LLMs, Ollama, RAG, Pinecone, vector databases, MinIO, Celery, Docker,
+and Kubernetes.
+
+
+KNOWLEDGE AND EXPERTISE
+-----------------------
+- Full-stack web application development
+- Responsive and mobile-first interface development
+- Component-based frontend architecture
+- Accessible UI engineering
+- REST API design and integration
+- Reactive and non-blocking backend development
+- Microservices and service-oriented application design
+- Authentication and authorization using JWT and RBAC
+- Secure coding and API security practices
+- Relational and NoSQL database design
+- Schema design, indexing, and query optimization
+- Third-party service and payment integration
+- Cloud deployment and application delivery
+- Performance optimization and production monitoring
+- Git-based collaboration and code reviews
+- Agile planning, sprint execution, and retrospectives
+- API testing and validation
+- Enterprise AI and LLM application development
+- Private and local LLM workflows
+- Retrieval-augmented generation (RAG)
+- Semantic retrieval and vector search
+- Asynchronous AI task processing
+- Object storage for AI application workflows
+- Containerized AI application deployment
+
+
+CORE TECHNICAL PROFICIENCY
+--------------------------
+- Spring Boot: 95%
+- REST APIs: 95%
+- MERN Stack: 94%
+- Python: 92%
+- React.js: 90%
+- JavaScript: 90%
+- Node.js: 90%
+- Tailwind CSS: 90%
+- PostgreSQL: 90%
+- Security and Authentication: 90%
+- Next.js: 85%
+- MongoDB: 85%
+
+
+PROGRAMMING LANGUAGES
+---------------------
+- Java
+- JavaScript
+- Python
+- PHP
+- HTML
+- CSS
+
+
+FRONTEND TECHNOLOGIES
+---------------------
+- React.js
+- Next.js
+- Angular
+- Vue.js
+- JavaScript
+- HTML5
+- CSS3
+- Tailwind CSS
+- Bootstrap
+- React-Bootstrap
+- Responsive Design
+- Accessibility
+
+
+BACKEND TECHNOLOGIES AND FRAMEWORKS
+-----------------------------------
+- Java
+- Spring Boot
+- Spring WebFlux
+- Node.js
+- Express.js
+- PHP Laravel
+- CodeIgniter
+- REST APIs
+- Microservices
+- JDBC
+- Spring Data JPA
+- Python
+- FastAPI
+
+
+AI ENGINEERING
+--------------
+- Python
+- FastAPI
+- Large Language Models (LLMs)
+- Ollama
+- Retrieval-Augmented Generation (RAG)
+- Pinecone
+- Vector Databases
+- MinIO
+- Celery
+- Docker
+- Kubernetes
+
+Hands-on capabilities include private and local LLM workflows, RAG pipelines,
+semantic retrieval, Pinecone and vector-database search, asynchronous task
+processing with Celery, MinIO object storage, and containerized deployment with
+Docker and Kubernetes.
+
+
+MERN STACK
+----------
+- MongoDB
+- Express.js
+- React.js
+- Node.js
+
+
+DATABASES
+---------
+- PostgreSQL
+- MongoDB
+- MySQL
+
+Database experience includes schema design, relationships, transactions,
+indexing, query optimization, data integrity, and performance tuning.
+
+
+SECURITY
+--------
+- JWT authentication
+- Role-Based Access Control (RBAC)
+- Authentication and authorization workflows
+- API security
+- Secure endpoint development
+- Vulnerability scanning and security hardening
+- OWASP-aware development practices
+
+
+CLOUD, DEVOPS, AND DEPLOYMENT
+-----------------------------
+- AWS Amplify
+- AWS S3
+- AWS RDS
+- Cloudflare
+- Render
+- Firebase
+- GitHub
+- GitLab
+- Git
+- Jira
+- Docker
+- Kubernetes
+
+
+TOOLS
+-----
+- Git
+- GitHub
+- GitLab
+- Postman
+- Jira
+- Kibana
+- Grafana
+- OWASP ZAP
+
+
+THIRD-PARTY INTEGRATIONS
+------------------------
+- PayPal
+- Stripe
+- SendGrid
+- Firebase
+- IPStack
+- CRM integrations
+
+
+PROFESSIONAL EXPERIENCE
+-----------------------
+
+1. Alltake Ites Pvt. Ltd.
+   Designation: Fullstack Developer
+   Location: Kharadi, Pune
+   Period: June 2024 – Present
+
+   Responsibilities and contributions:
+   - Develop and maintain complete web applications using React.js, Next.js,
+     Tailwind CSS, Node.js, Express.js, Java Spring Boot, and PHP Laravel.
+   - Build responsive and interactive frontend interfaces.
+   - Connect frontend applications to backend APIs and data stores.
+   - Develop scalable services using Node.js, Express.js, Spring Boot, and
+     Laravel.
+   - Design REST APIs and microservices.
+   - Work with PostgreSQL and MongoDB schemas, indexes, and queries.
+   - Improved application load times by up to 40% through database and query
+     optimization.
+   - Implement JWT authentication, RBAC, and security hardening.
+   - Integrate PayPal, Stripe, SendGrid, Firebase, and IPStack.
+   - Deploy and manage applications using AWS Amplify, AWS S3, AWS RDS, and
+     Cloudflare.
+   - Participate in Agile planning, code reviews, and retrospectives.
+   - Monitor production systems using Kibana and Grafana.
+
+2. Correct Cloud Pvt. Ltd.
+   Designation: Software Developer
+   Location: Kondhwa, Pune
+   Period: April 2023 – May 2024
+
+   Responsibilities and contributions:
+   - Built a full-stack GitHub analytics application.
+   - Developed frontend interfaces and data visualizations using Angular and
+     Vue.js.
+   - Built non-blocking reactive REST APIs using Spring Boot and Spring WebFlux.
+   - Implemented persistence using Spring Data JPA, PostgreSQL, and JDBC.
+   - Worked with database transactions, relationships, and data integrity.
+   - Secured login and registration endpoints using JWT authentication and
+     authorization.
+   - Managed Git workflows and validated APIs with Postman test suites.
+   - Visualized repository and team collaboration metrics for project-health
+     insights.
+
+
+PROJECTS
+--------
+
+1. Enterprise AI System
+   Type: Enterprise AI Platform
+   Availability: Private system
+   Technologies: Python, FastAPI, LLMs, Ollama, RAG, Pinecone, Vector
+   Databases, MinIO, Celery, Docker, Kubernetes
+
+   An enterprise AI platform built around private LLM workflows,
+   retrieval-augmented generation, vector search, asynchronous processing,
+   object storage, and containerized deployment. Its architecture includes
+   local LLM workflows with Ollama, semantic retrieval using RAG and vector
+   databases, background processing with Celery, MinIO object storage, and
+   deployment with Docker and Kubernetes.
+
+2. SmartQC
+   Live URL: https://smartqc.io/
+   Type: Full-Stack Data Quality Product
+   Technologies: React.js, Spring Boot, PostgreSQL, REST APIs, integrations
+
+   SmartQC helps teams verify leads, improve sales pipelines, and strengthen
+   marketing efforts with clean and validated data. Its capabilities include
+   lead verification, duplicate checks, data-quality workflows, pipeline
+   support, and CRM integration.
+
+3. EdgeLinking
+   Live URL: https://edgelinking.com/
+   Type: Full-Stack Demand-Generation and Marketing Platform
+   Technologies: Next.js, Tailwind CSS, Node.js, Firebase, AWS Amplify
+
+   EdgeLinking combines editorial and advertorial content, marketing
+   consultancy, funnel optimization, audience targeting, and campaigns across
+   APAC and other markets.
+
+4. KiteCyber
+   Live URL: https://kitecyber.com/
+   Type: Security Platform and APIs
+   Technologies: Java, Spring Boot, PostgreSQL, JWT, REST APIs
+
+   KiteCyber focuses on SaaS and GenAI visibility, contextual policy
+   enforcement, endpoint data protection, and data-loss prevention across data
+   at rest, in use, and in motion.
+
+5. KidoCart
+   Live URL: https://www.kidocart.shop/
+   Type: Full-Stack E-commerce Product
+   Technologies: React.js, Node.js, REST APIs, responsive UI, integrations
+
+   KidoCart is an online store for children's toys, clothing, feeding products,
+   furniture, books, and other safe and educational essentials. It includes a
+   responsive storefront, category browsing, search, wishlist, cart, account,
+   offer, and order experiences.
+
+
+EDUCATION
+---------
+1. Master of Computer Applications (MCA)
+   Institution: PA Inamdar University
+   Location: Pune, Maharashtra
+   Period: 2023–2025
+   CGPA: 9.29/10
+
+2. Bachelor of Computer Applications (BCA)
+   Institution: Pune University
+   Location: Pune, Maharashtra
+   Period: 2020–2023
+
+
+WORKING STYLE
+-------------
+- Works comfortably across both frontend and backend development.
+- Focuses on clean, maintainable, and reusable code.
+- Builds responsive interfaces without compromising backend reliability.
+- Connects full-stack product development with practical enterprise AI workflows.
+- Values accessibility, data integrity, security, and performance.
+- Communicates clearly during planning, development, code review, and handoff.
+- Iterates quickly on feedback and collaborates effectively in Agile teams.
+
+
+CONTACT
+-------
+Email: saifkhan0409.sk@gmail.com
+Phone: +91 84232 90835
+LinkedIn: https://www.linkedin.com/in/saif-khan-b6099920a/
+GitHub: https://github.com/saifxx75

@@ -4,6 +4,12 @@ import SkillBadge from '../components/SkillBadge';
 import TechBackground from '../components/TechBackground';
 import TechCard from '../components/TechCard';
 import { getSkillLogo } from '../data/skillLogos';
+import {
+  pageHeaderVariants,
+  sectionVariants as containerVariants,
+  revealItemVariants as itemVariants,
+  professionalCardHover
+} from '../utils/motion';
 import { 
   Briefcase, 
   GraduationCap, 
@@ -15,6 +21,7 @@ import {
   Heart,
   Code2,
   Layers,
+  BrainCircuit,
   Terminal,
   Cpu
 } from 'lucide-react';
@@ -116,29 +123,11 @@ function About() {
   const techStack = [
     { category: 'Frontend', items: ['React.js', 'Next.js', 'Angular', 'Vue.js', 'JavaScript', 'HTML/CSS', 'Tailwind CSS'], icon: Layers },
     { category: 'Backend', items: ['Java', 'Spring Boot', 'Spring WebFlux', 'Node.js', 'Express.js', 'PHP Laravel', 'CodeIgniter'], icon: Server },
+    { category: 'AI Engineering', items: ['Python', 'FastAPI', 'LLMs', 'Ollama', 'RAG', 'Pinecone', 'Vector Databases', 'MinIO', 'Celery'], icon: BrainCircuit },
     { category: 'Databases & Tools', items: ['MongoDB', 'MySQL', 'PostgreSQL', 'Git', 'GitHub', 'GitLab', 'Postman'], icon: Database },
     { category: 'UI Engineering', items: ['Responsive Design', 'Bootstrap', 'React-Bootstrap', 'Accessibility'], icon: Code2 },
-    { category: 'DevOps & Cloud', items: ['AWS Amplify', 'AWS S3', 'Cloudflare', 'Render', 'Git', 'Jira'], icon: Cloud }
+    { category: 'DevOps & Cloud', items: ['AWS Amplify', 'AWS S3', 'Cloudflare', 'Render', 'Docker', 'Kubernetes', 'Git', 'Jira'], icon: Cloud }
   ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
-    }
-  };
 
   return (
     <LazyMotion features={domAnimation}>
@@ -149,9 +138,9 @@ function About() {
         {/* Header */}
         <motion.div 
           className="text-center mb-16"
-          initial={false}
+          initial="hidden"
           animate="visible"
-          variants={containerVariants}
+          variants={pageHeaderVariants}
         >
           <motion.div 
             variants={itemVariants}
@@ -171,7 +160,7 @@ function About() {
             variants={itemVariants}
             className="text-xl text-light-200 dark:text-dark-200 max-w-3xl mx-auto"
           >
-            Passionate about creating innovative solutions and building scalable applications
+            Building polished full-stack products and practical enterprise AI systems
           </motion.p>
         </motion.div>
 
@@ -179,7 +168,7 @@ function About() {
           {/* Left Column - Personal Info */}
           <motion.div 
             className="lg:col-span-1"
-            initial={false}
+            initial="hidden"
             animate="visible"
             variants={containerVariants}
           >
@@ -199,7 +188,7 @@ function About() {
                 <div className="space-y-4">
                   {[
                     { icon: Briefcase, label: "Experience", text: "3+ years · 2023—Present", color: "text-primary" },
-                    { icon: Code2, label: "Specialization", text: "Frontend + Backend", color: "text-secondary" },
+                    { icon: Code2, label: "Specialization", text: "Full-stack + AI", color: "text-secondary" },
                     { icon: GraduationCap, label: "Education", text: "MCA · 2023—2025", color: "text-primary" }
                   ].map(({ icon: Icon, label, text, color }, index) => (
                     <motion.div 
@@ -240,8 +229,8 @@ function About() {
                   {[
                     { value: "10+", label: "Projects", color: "text-primary", delay: 0.1 },
                     { value: "3+", label: "Years", color: "text-secondary", delay: 0.2 },
-                    { value: "15+", label: "Technologies", color: "text-primary", delay: 0.3 },
-                    { value: "3+", label: "Major Projects", color: "text-secondary", delay: 0.4 }
+                    { value: "25+", label: "Technologies", color: "text-primary", delay: 0.3 },
+                    { value: "5", label: "Major Projects", color: "text-secondary", delay: 0.4 }
                   ].map(({ value, label, color, delay }) => (
                     <motion.div 
                       key={label}
@@ -269,13 +258,14 @@ function About() {
           {/* Right Column - Details */}
           <motion.div 
             className="lg:col-span-2"
-            initial={false}
+            initial="hidden"
             animate="visible"
             variants={containerVariants}
           >
             {/* About Description */}
             <motion.div 
               variants={itemVariants}
+              whileHover={professionalCardHover}
               className="bg-light-500 dark:bg-dark-400 rounded-xl shadow-lg p-8 mb-8 border border-light-300 dark:border-dark-300"
             >
               <h3 className="text-2xl font-bold text-light-100 dark:text-dark-100 mb-6 flex items-center section-heading">
@@ -294,10 +284,17 @@ function About() {
                   and Cloudflare, with equal attention to usability, maintainability, and production performance.
                 </p>
                 <p>
+                  I also have hands-on experience building enterprise AI workflows with Python, FastAPI, LLMs, Ollama, RAG,
+                  Pinecone and vector databases, MinIO, and Celery, with containerized delivery using Docker and Kubernetes.
+                  This complements my full-stack work rather than narrowing it: I can take an intelligent feature from its
+                  interface through application services, retrieval and data workflows, and deployment.
+                </p>
+                <p>
                   My academic background includes an MCA completed across 2023–2025 and a BCA completed in 2023. Alongside my role at
-                  Alltake Ites Pvt. Ltd., my portfolio includes SmartQC, EdgeLinking, KiteCyber, and KidoCart—work spanning
-                  data-quality workflows, demand-generation experiences, security platforms, and commerce. My contributions
-                  cover interface development, application architecture, APIs, data, and delivery in an Agile environment.
+                  Alltake Ites Pvt. Ltd., my portfolio includes an Enterprise AI System, SmartQC, EdgeLinking, KiteCyber, and
+                  KidoCart—work spanning intelligent retrieval, data-quality workflows, demand-generation experiences,
+                  security platforms, and commerce. My contributions cover interface development, application architecture,
+                  APIs, AI workflows, data, and delivery in an Agile environment.
                 </p>
               </div>
             </motion.div>
@@ -318,6 +315,7 @@ function About() {
                     className="group min-w-0 rounded-lg border border-light-300/70 bg-light-600/70 p-3.5 transition-colors duration-300 hover:border-primary/45 dark:border-dark-300/70 dark:bg-dark-500/55 dark:hover:border-primary/55"
                     initial={false}
                     whileInView={{ opacity: 1, x: 0 }}
+                    whileHover={professionalCardHover}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                   >

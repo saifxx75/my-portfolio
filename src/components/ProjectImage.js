@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Database, Server, Cloud, Globe, Smartphone, Monitor } from 'lucide-react';
+import { BrainCircuit, Code2, Database, Server, Cloud, Globe, Smartphone, Monitor } from 'lucide-react';
 
 const ProjectImage = ({ 
   projectType = 'web', 
@@ -30,12 +30,14 @@ const ProjectImage = ({
       backend: Server,
       database: Database,
       api: Code2,
-      cloud: Cloud
+      cloud: Cloud,
+      ai: BrainCircuit
     };
     return icons[type] || Code2;
   };
 
   const ProjectIcon = getProjectIcon(projectType);
+  const projectTypeLabel = projectType === 'ai' ? 'AI system' : `${projectType} project`;
 
   return (
     <motion.div
@@ -60,7 +62,7 @@ const ProjectImage = ({
           {size === 'full' && (
             <div>
               <p className="text-sm text-light-200 dark:text-dark-200 font-medium mb-1">{title}</p>
-              <p className="text-xs text-light-300 dark:text-dark-300 capitalize">{projectType} Project</p>
+              <p className="text-xs text-light-300 dark:text-dark-300 capitalize">{projectTypeLabel}</p>
             </div>
           )}
         </motion.div>

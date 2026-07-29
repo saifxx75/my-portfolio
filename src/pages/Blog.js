@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import {
+  pageHeaderVariants,
+  sectionVariants as containerVariants,
+  revealItemVariants as itemVariants,
+  revealViewport,
+  professionalCardHover
+} from '../utils/motion';
+import TechBackground from '../components/TechBackground';
 import { 
   Calendar, 
   Clock, 
@@ -130,34 +138,16 @@ function Blog() {
     .filter(post => post.featured)
     .sort((a, b) => featuredOrder[a.category] - featuredOrder[b.category]);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-light-600 dark:bg-dark-600 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-light-600 dark:bg-dark-600 py-12 relative overflow-hidden">
+      <TechBackground variant="grid" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div 
           className="text-center mb-16"
-          initial={false}
+          initial="hidden"
           animate="visible"
-          variants={containerVariants}
+          variants={pageHeaderVariants}
         >
           <motion.h1 
             variants={itemVariants}
@@ -176,7 +166,7 @@ function Blog() {
         {/* Search and Filter */}
         <motion.div 
           className="mb-12"
-          initial={false}
+          initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
@@ -216,7 +206,7 @@ function Blog() {
         {selectedCategory === 'all' && searchTerm === '' && (
           <motion.div 
             className="mb-16"
-            initial={false}
+            initial="hidden"
             animate="visible"
             variants={containerVariants}
           >
@@ -232,7 +222,8 @@ function Blog() {
                 <motion.article
                   key={post.id}
                   variants={itemVariants}
-                  className="bg-white dark:bg-dark-400 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-light-400 dark:border-dark-300"
+                  whileHover={professionalCardHover}
+                  className="motion-card bg-white dark:bg-dark-400 rounded-xl shadow-lg overflow-hidden border border-light-400 dark:border-dark-300"
                 >
                   <div className="p-6">
                     <div className="flex items-center mb-4">
@@ -286,7 +277,7 @@ function Blog() {
         {/* All Posts */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          initial={false}
+          initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
@@ -294,7 +285,8 @@ function Blog() {
             <motion.article
               key={post.id}
               variants={itemVariants}
-              className="bg-white dark:bg-dark-400 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-light-400 dark:border-dark-300 group cursor-pointer"
+              whileHover={professionalCardHover}
+              className="motion-card bg-white dark:bg-dark-400 rounded-xl shadow-lg overflow-hidden border border-light-400 dark:border-dark-300 group cursor-pointer"
             >
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
@@ -366,9 +358,9 @@ function Blog() {
         {/* CTA Section */}
         <motion.div 
           className="mt-16 sm:mt-20 text-center bg-white dark:bg-dark-500 rounded-lg p-6 sm:p-12 border border-light-400 dark:border-dark-400"
-          initial={false}
+          initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={revealViewport}
           variants={containerVariants}
         >
           <motion.div variants={itemVariants}>
