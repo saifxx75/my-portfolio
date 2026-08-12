@@ -31,7 +31,7 @@
       // Prevent flash of unstyled content (FOUC) by setting theme before React loads
       (function() {
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        if (savedTheme === 'dark') {
           document.documentElement.classList.add('dark');
         } else {
           document.documentElement.classList.remove('dark');
@@ -40,11 +40,6 @@
     </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <script
-      src="http://localhost:8088/widget.js"
-      data-widget-id="wgt_bFy1BL_vq0FQH5SO5bEbv5q-"
-      async
-    ></script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

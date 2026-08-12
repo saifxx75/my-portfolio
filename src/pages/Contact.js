@@ -18,6 +18,7 @@ import {
   AtSign
 } from 'lucide-react';
 import { contactLinks } from '../data/siteData';
+import { api } from '../services/api';
 import {
   pageHeaderVariants,
   sectionVariants as containerVariants,
@@ -33,6 +34,7 @@ function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -44,16 +46,17 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
+    setSubmitError('');
+    try {
+      await api.messages.create(formData);
       setIsSubmitting(false);
       setIsSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Reset success message after 5 seconds
       setTimeout(() => setIsSubmitted(false), 5000);
-    }, 2000);
+    } catch (error) {
+      setSubmitError(error.message || 'Unable to send your message. Please try again.');
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -266,6 +269,11 @@ function Contact() {
                   <CheckCircle className="h-5 w-5 text-secondary mr-2" />
                   <span className="text-light-100 dark:text-dark-100">Message sent successfully! I'll get back to you soon.</span>
                 </motion.div>
+              )}
+              {submitError && (
+                <div role="alert" className="mb-6 rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-red-950/30 dark:text-red-200">
+                  {submitError}
+                </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import SkillBadge from '../components/SkillBadge';
 import TechBackground from '../components/TechBackground';
@@ -6,6 +6,7 @@ import TechCard from '../components/TechCard';
 import TechButton from '../components/TechButton';
 import ProjectImage from '../components/ProjectImage';
 import { projects } from '../data/siteData';
+import { api } from '../services/api';
 import {
   pageHeaderVariants,
   sectionVariants as containerVariants,
@@ -23,17 +24,27 @@ import {
 
 function Projects() {
   const [filter, setFilter] = useState('all');
+  const [publicProjects, setPublicProjects] = useState(projects);
+
+  useEffect(() => {
+    api.projects.list()
+      .then(data => {
+        const items = data.items || data;
+        if (Array.isArray(items) && items.length) setPublicProjects(items.filter(item => !item.status || item.status === 'published'));
+      })
+      .catch(() => {});
+  }, []);
 
   const categories = [
-    { id: 'all', label: 'All Work', count: projects.length },
-    { id: 'ai', label: 'AI Systems', count: projects.filter(p => p.category === 'ai').length },
-    { id: 'fullstack', label: 'Full-Stack Products', count: projects.filter(p => p.category === 'fullstack').length },
-    { id: 'platform', label: 'Platform & APIs', count: projects.filter(p => p.category === 'platform').length }
+    { id: 'all', label: 'All Work', count: publicProjects.length },
+    { id: 'ai', label: 'AI Systems', count: publicProjects.filter(p => p.category === 'ai').length },
+    { id: 'fullstack', label: 'Full-Stack Products', count: publicProjects.filter(p => p.category === 'fullstack').length },
+    { id: 'platform', label: 'Platform & APIs', count: publicProjects.filter(p => p.category === 'platform').length }
   ];
 
   const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === filter);
+    ? publicProjects
+    : publicProjects.filter(project => project.category === filter);
 
   return (
     <div className="min-h-screen bg-light-600 dark:bg-dark-600 py-12 relative overflow-hidden">
@@ -133,7 +144,7 @@ function Projects() {
                 <div className="p-6 flex-1 flex flex-col">
                   {/* Project Title */}
                   <h3 className="text-xl font-bold text-light-100 dark:text-dark-100 mb-3 flex items-center">
-                    <project.icon className="h-5 w-5 text-primary mr-2" />
+                    {project.icon ? <project.icon className="h-5 w-5 text-primary mr-2" /> : <Code className="h-5 w-5 text-primary mr-2" />}
                     {project.title}
                   </h3>
                   

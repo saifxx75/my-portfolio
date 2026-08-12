@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   pageHeaderVariants,
@@ -8,6 +8,7 @@ import {
   professionalCardHover
 } from '../utils/motion';
 import TechBackground from '../components/TechBackground';
+import { api } from '../services/api';
 import { 
   Calendar, 
   Clock, 
@@ -26,6 +27,16 @@ import {
 function Blog() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [apiPosts, setApiPosts] = useState(null);
+
+  useEffect(() => {
+    api.posts.list()
+      .then(data => {
+        const items = data.items || data;
+        if (Array.isArray(items) && items.length) setApiPosts(items.filter(item => !item.status || item.status === 'published'));
+      })
+      .catch(() => {});
+  }, []);
 
   const blogPosts = [
     {
@@ -113,19 +124,20 @@ function Blog() {
       featured: true
     }
   ];
+  const visiblePosts = (apiPosts || blogPosts).map(post => ({ ...post, icon: post.icon || Code2, date: post.date || post.updatedAt }));
 
   const categories = [
-    { id: 'all', label: 'All Posts', count: blogPosts.length },
-    { id: 'Frontend', label: 'Frontend', count: blogPosts.filter(post => post.category === 'Frontend').length },
-    { id: 'Full Stack', label: 'Full Stack', count: blogPosts.filter(post => post.category === 'Full Stack').length },
-    { id: 'Backend', label: 'Backend', count: blogPosts.filter(post => post.category === 'Backend').length },
-    { id: 'Database', label: 'Database', count: blogPosts.filter(post => post.category === 'Database').length },
-    { id: 'Security', label: 'Security', count: blogPosts.filter(post => post.category === 'Security').length },
-    { id: 'Architecture', label: 'Architecture', count: blogPosts.filter(post => post.category === 'Architecture').length },
-    { id: 'DevOps', label: 'DevOps', count: blogPosts.filter(post => post.category === 'DevOps').length }
+    { id: 'all', label: 'All Posts', count: visiblePosts.length },
+    { id: 'Frontend', label: 'Frontend', count: visiblePosts.filter(post => post.category === 'Frontend').length },
+    { id: 'Full Stack', label: 'Full Stack', count: visiblePosts.filter(post => post.category === 'Full Stack').length },
+    { id: 'Backend', label: 'Backend', count: visiblePosts.filter(post => post.category === 'Backend').length },
+    { id: 'Database', label: 'Database', count: visiblePosts.filter(post => post.category === 'Database').length },
+    { id: 'Security', label: 'Security', count: visiblePosts.filter(post => post.category === 'Security').length },
+    { id: 'Architecture', label: 'Architecture', count: visiblePosts.filter(post => post.category === 'Architecture').length },
+    { id: 'DevOps', label: 'DevOps', count: visiblePosts.filter(post => post.category === 'DevOps').length }
   ];
 
-  const filteredPosts = blogPosts.filter(post => {
+  const filteredPosts = visiblePosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -134,7 +146,7 @@ function Blog() {
   });
 
   const featuredOrder = { Frontend: 0, 'Full Stack': 1, Backend: 2 };
-  const featuredPosts = blogPosts
+  const featuredPosts = visiblePosts
     .filter(post => post.featured)
     .sort((a, b) => featuredOrder[a.category] - featuredOrder[b.category]);
 
